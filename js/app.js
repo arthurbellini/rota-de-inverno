@@ -92,11 +92,19 @@ function fmtDate(iso) {
 function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 function cityName(id) { const c = CITIES.find((c) => c.id === id); return c ? c.name : id; }
 
-/* ---------------- Lightbox ---------------- */
+/* ---------------- Lightbox (navegável quando o local tem várias fotos) ---------------- */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCap = document.getElementById("lightboxCap");
-function openLightbox(img) {
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+const lightboxCount = document.getElementById("lightboxCount");
+let lightboxSet = [];
+let lightboxIndex = 0;
+
+function renderLightboxSlide() {
+  const img = lightboxSet[lightboxIndex];
+  if (!img) return;
   lightboxImg.src = img.imageUrl;
   lightboxImg.alt = img.caption || "";
   let capHtml = `<strong>${img.caption || ""}</strong>`;
@@ -105,23 +113,130 @@ function openLightbox(img) {
     if (img.commonsPageUrl) capHtml += ` · <a href="${img.commonsPageUrl}" target="_blank" rel="noopener">ver fonte</a>`;
   }
   lightboxCap.innerHTML = capHtml;
+  const multi = lightboxSet.length > 1;
+  lightboxPrev.hidden = !multi;
+  lightboxNext.hidden = !multi;
+  lightboxCount.hidden = !multi;
+  if (multi) lightboxCount.textContent = `${lightboxIndex + 1} / ${lightboxSet.length}`;
+}
+function openLightbox(img, set, index) {
+  lightboxSet = set && set.length ? set : [img];
+  lightboxIndex = index || Math.max(0, lightboxSet.indexOf(img));
+  renderLightboxSlide();
   lightbox.classList.add("open");
+}
+function lightboxStep(dir) {
+  if (!lightboxSet.length) return;
+  lightboxIndex = (lightboxIndex + dir + lightboxSet.length) % lightboxSet.length;
+  renderLightboxSlide();
 }
 document.getElementById("lightboxClose").addEventListener("click", () => lightbox.classList.remove("open"));
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.classList.remove("open"); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") lightbox.classList.remove("open"); });
+lightboxPrev.addEventListener("click", () => lightboxStep(-1));
+lightboxNext.addEventListener("click", () => lightboxStep(1));
+document.addEventListener("keydown", (e) => {
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") lightbox.classList.remove("open");
+  if (e.key === "ArrowLeft") lightboxStep(-1);
+  if (e.key === "ArrowRight") lightboxStep(1);
+});
 
-function galleryItemHTML(placeId, fallbackLabel) {
-  const img = PLACE_IMAGES[placeId];
-  if (img && img.imageUrl) {
-    return `<div class="gallery-item" data-place="${placeId}">
-      <img src="${img.imageUrl}" alt="${img.caption || fallbackLabel}">
-      <div class="gallery-cap">${img.caption || fallbackLabel}</div>
+const PREFERS_REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function getPlaceGallery(placeId) {
+  const primary = PLACE_IMAGES[placeId];
+  const extras = (typeof PLACE_IMAGES_EXTRA !== "undefined" && PLACE_IMAGES_EXTRA[placeId]) || [];
+  const all = [primary, ...extras].filter((i) => i && i.imageUrl);
+  return all;
+}
+
+const ICON_CHEVRON_LEFT = `<svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_CHEVRON_RIGHT = `<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+function placeCarouselHTML(placeId, fallbackLabel, featured) {
+  const images = getPlaceGallery(placeId);
+  const blockCls = "place-block" + (featured ? " featured" : "");
+
+  if (!images.length) {
+    return `<div class="${blockCls}" style="cursor:default;">
+      <div class="carousel"><div class="gallery-placeholder">❄ ${fallbackLabel}<br><span style="opacity:.7">foto a confirmar</span></div></div>
     </div>`;
   }
-  return `<div class="gallery-item" style="cursor:default;">
-    <div class="gallery-placeholder">❄ ${fallbackLabel}<br><span style="opacity:.7">foto a confirmar</span></div>
+
+  const slides = images.map((img, i) => `
+    <div class="carousel-slide" data-index="${i}">
+      <img src="${img.imageUrl}" alt="${img.caption || fallbackLabel}" ${i > 0 ? 'loading="lazy"' : ""}>
+      <div class="carousel-cap">${img.caption || fallbackLabel}</div>
+    </div>`).join("");
+
+  const dots = images.length > 1
+    ? `<div class="carousel-dots">${images.map((_, i) => `<button data-index="${i}" class="${i === 0 ? "active" : ""}" aria-label="Foto ${i + 1}"></button>`).join("")}</div>`
+    : "";
+  const arrows = images.length > 1
+    ? `<button class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">${ICON_CHEVRON_LEFT}</button>
+       <button class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">${ICON_CHEVRON_RIGHT}</button>`
+    : "";
+  const count = images.length > 1 ? `<div class="place-count">1 / ${images.length}</div>` : "";
+
+  return `<div class="${blockCls}" data-place="${placeId}">
+    <div class="carousel">
+      <div class="carousel-track">${slides}</div>
+      ${arrows}
+      ${dots}
+      ${count}
+    </div>
   </div>`;
+}
+
+function wireCarousels(root) {
+  root.querySelectorAll(".place-block[data-place]").forEach((block) => {
+    const track = block.querySelector(".carousel-track");
+    const slides = [...block.querySelectorAll(".carousel-slide")];
+    const dots = [...block.querySelectorAll(".carousel-dots button")];
+    const countEl = block.querySelector(".place-count");
+    if (slides.length === 0) return;
+
+    function goTo(i) {
+      const idx = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: idx * track.clientWidth, behavior: "smooth" });
+    }
+    function updateActive() {
+      const idx = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+      if (countEl) countEl.textContent = `${idx + 1} / ${slides.length}`;
+    }
+
+    block.querySelectorAll(".carousel-arrow").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+        goTo(idx + Number(btn.dataset.dir));
+      });
+    });
+    dots.forEach((d) => d.addEventListener("click", (e) => { e.stopPropagation(); goTo(Number(d.dataset.index)); }));
+    track.addEventListener("scroll", () => {
+      clearTimeout(track._scrollT);
+      track._scrollT = setTimeout(updateActive, 80);
+    }, { passive: true });
+
+    slides.forEach((slide) => {
+      slide.addEventListener("click", () => {
+        const placeId = block.dataset.place;
+        const images = getPlaceGallery(placeId);
+        const idx = Number(slide.dataset.index);
+        if (images[idx]) openLightbox(images[idx], images, idx);
+      });
+    });
+
+    if (slides.length > 1 && !PREFERS_REDUCED_MOTION) {
+      let timer = setInterval(() => {
+        const idx = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+        goTo((idx + 1) % slides.length);
+      }, 4800);
+      block.addEventListener("mouseenter", () => clearInterval(timer));
+      block.addEventListener("touchstart", () => clearInterval(timer), { passive: true });
+    }
+  });
 }
 
 /* ---------------- Roteiro: rail + painel ---------------- */
@@ -171,7 +286,7 @@ function renderDayPanel() {
     </div>`).join("");
 
   const placesSeen = [...new Set(day.activities.map((a) => a.place).filter(Boolean))];
-  const galleryHtml = placesSeen.map((p) => galleryItemHTML(p, day.title)).join("");
+  const galleryHtml = placesSeen.map((p, i) => placeCarouselHTML(p, day.title, i === 0)).join("");
 
   const cityBadges = day.cities.map((c) => `<span class="badge badge-city">${cityName(c)}</span>`).join(" ");
   const hotelBadge = day.hotelCity ? `<span class="badge">🛏 Dorme em ${cityName(day.hotelCity)}</span>` : `<span class="badge">Voo de retorno</span>`;
@@ -190,16 +305,34 @@ function renderDayPanel() {
     <div class="gallery">${galleryHtml}</div>
   `;
 
-  dayPanel.querySelectorAll(".gallery-item[data-place]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const img = PLACE_IMAGES[el.dataset.place];
-      if (img && img.imageUrl) openLightbox(img);
-    });
-  });
+  wireCarousels(dayPanel);
 }
 
 renderDayRail();
 renderDayPanel();
+
+document.getElementById("railPrev")?.addEventListener("click", () => dayRail.scrollBy({ left: -260, behavior: "smooth" }));
+document.getElementById("railNext")?.addEventListener("click", () => dayRail.scrollBy({ left: 260, behavior: "smooth" }));
+
+/* ---------------- Contagem animada dos números do hero ---------------- */
+function runCountUps() {
+  document.querySelectorAll("[data-count]").forEach((el) => {
+    const target = Number(el.dataset.count);
+    if (el._counted || !target) return;
+    el._counted = true;
+    if (PREFERS_REDUCED_MOTION) { el.textContent = target; return; }
+    const start = performance.now();
+    const dur = 900;
+    function tick(now) {
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+runCountUps();
 
 /* ---------------- Mapa de rota (Leaflet) ---------------- */
 (function initMap() {
@@ -224,7 +357,8 @@ renderDayPanel();
   });
 
   map.fitBounds(line.getBounds(), { padding: [24, 24] });
-  document.getElementById("statCities").textContent = CITIES.length;
+  document.getElementById("statCities").dataset.count = CITIES.length;
+  runCountUps();
 })();
 
 /* ---------------- Hospedagem ---------------- */
@@ -422,6 +556,26 @@ renderReservas();
       ${f.texto} — <a href="${f.url}" target="_blank" rel="noopener" style="color:var(--gold); font-weight:600;">fonte ↗</a>
     </li>
   `).join("");
+})();
+
+/* ---------------- Revelação suave ao rolar ---------------- */
+(function initScrollReveal() {
+  if (PREFERS_REDUCED_MOTION) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll(
+    "#hospedagemGrid .card, #transporteGrid .card, .rate-box, .totals-row, #fontesList"
+  ).forEach((el) => {
+    el.classList.add("reveal");
+    io.observe(el);
+  });
 })();
 
 /* As fotos reais já vêm embutidas em js/images-data.js (PLACE_IMAGES),
