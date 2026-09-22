@@ -34,6 +34,8 @@ const CITIES = [
 
 // Ordem da rota para desenhar a polyline no mapa (Lisboa->Fátima->Porto->Santiago->Porto->Lisboa->Viena->Hallstatt->Salzburg->Estrasburgo->Paris->Versailles->Paris)
 const ROUTE_ORDER = ["lisboa","fatima","porto","santiago","porto","lisboa","viena","hallstatt","salzburg","estrasburgo","paris","versailles","paris"];
+// Dia da viagem em que cada ponto da rota acima é alcançado (mesmo índice de ROUTE_ORDER) — usado para animar o mapa por dia.
+const ROUTE_DAY = [1, 1, 1, 3, 3, 4, 4, 8, 8, 9, 10, 15, 16];
 
 /* ---------------------------------------------------------------------
    ROTEIRO DIA A DIA

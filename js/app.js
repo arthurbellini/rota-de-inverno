@@ -85,6 +85,28 @@ function fmtBRL(v) {
   if (v === null || v === undefined) return "—";
   return "R$ " + Number(v).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+/* Anima um número de valor antigo -> novo dentro de um elemento (usado no orçamento) */
+function animateNumber(el, targetValue, formatFn) {
+  if (!el) return;
+  const from = Number(el.dataset.rawValue || 0);
+  const to = Number(targetValue) || 0;
+  el.dataset.rawValue = to;
+  if (PREFERS_REDUCED_MOTION || Math.abs(to - from) < 0.005) {
+    el.textContent = formatFn(to);
+    return;
+  }
+  const start = performance.now();
+  const dur = 550;
+  function tick(now) {
+    const p = Math.min(1, (now - start) / dur);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = formatFn(from + (to - from) * eased);
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = formatFn(to);
+  }
+  requestAnimationFrame(tick);
+}
+
 function fmtDate(iso) {
   const [y, m, d] = iso.split("-");
   return `${d}/${m}/${y}`;
@@ -153,12 +175,13 @@ function getPlaceGallery(placeId) {
 const ICON_CHEVRON_LEFT = `<svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const ICON_CHEVRON_RIGHT = `<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
-function placeCarouselHTML(placeId, fallbackLabel, featured) {
+function placeCarouselHTML(placeId, fallbackLabel, featured, blockIndex) {
   const images = getPlaceGallery(placeId);
   const blockCls = "place-block" + (featured ? " featured" : "");
+  const delayStyle = `style="animation-delay:${Math.min(blockIndex || 0, 5) * 90}ms"`;
 
   if (!images.length) {
-    return `<div class="${blockCls}" style="cursor:default;">
+    return `<div class="${blockCls} empty" ${delayStyle}>
       <div class="carousel"><div class="gallery-placeholder">❄ ${fallbackLabel}<br><span style="opacity:.7">foto a confirmar</span></div></div>
     </div>`;
   }
@@ -178,7 +201,7 @@ function placeCarouselHTML(placeId, fallbackLabel, featured) {
     : "";
   const count = images.length > 1 ? `<div class="place-count">1 / ${images.length}</div>` : "";
 
-  return `<div class="${blockCls}" data-place="${placeId}">
+  return `<div class="${blockCls}" data-place="${placeId}" ${delayStyle}>
     <div class="carousel">
       <div class="carousel-track">${slides}</div>
       ${arrows}
@@ -239,10 +262,59 @@ function wireCarousels(root) {
   });
 }
 
+/* ---------------- Status da viagem (antes / durante / depois) ---------------- */
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+const TODAY_ISO = todayISO();
+const TODAY_DAY = DAYS.find((d) => d.date === TODAY_ISO) || null;
+
+function daysBetween(isoA, isoB) {
+  const a = new Date(isoA + "T00:00:00");
+  const b = new Date(isoB + "T00:00:00");
+  return Math.round((b - a) / 86400000);
+}
+
+function initTripStatus() {
+  const el = document.getElementById("tripStatus");
+  if (!el) return;
+  const textEl = el.querySelector(".trip-status-text");
+  const ctaEl = el.querySelector(".trip-status-cta");
+  const firstDay = DAYS[0], lastDay = DAYS[DAYS.length - 1];
+
+  if (TODAY_DAY) {
+    el.classList.add("is-live");
+    textEl.textContent = `Hoje é o Dia ${TODAY_DAY.n} da viagem — ${TODAY_DAY.title}`;
+    ctaEl.textContent = "Ver roteiro de hoje →";
+  } else if (TODAY_ISO < firstDay.date) {
+    const n = daysBetween(TODAY_ISO, firstDay.date);
+    el.classList.add("is-countdown");
+    textEl.textContent = n === 1 ? "Falta 1 dia para a viagem começar" : `Faltam ${n} dias para a viagem começar`;
+    ctaEl.textContent = "Ver roteiro completo →";
+  } else if (TODAY_ISO > lastDay.date) {
+    el.classList.add("is-done");
+    textEl.textContent = "Viagem concluída — reviva o roteiro completo";
+    ctaEl.textContent = "Ver roteiro →";
+  } else {
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+  el.addEventListener("click", () => {
+    if (TODAY_DAY) {
+      activeDay = TODAY_DAY.n;
+      renderDayRail();
+      renderDayPanel();
+      if (typeof window.updateMapDay === "function") window.updateMapDay(activeDay);
+    }
+  });
+}
+
 /* ---------------- Roteiro: rail + painel ---------------- */
 const dayRail = document.getElementById("dayRail");
 const dayPanel = document.getElementById("dayPanel");
-let activeDay = 1;
+let activeDay = TODAY_DAY ? TODAY_DAY.n : 1;
 
 function worstAlertLevel(day) {
   if (day.alerts.some((a) => a.level === "danger")) return "danger";
@@ -256,7 +328,11 @@ function renderDayRail() {
   dayRail.innerHTML = DAYS.map((day) => {
     const level = worstAlertLevel(day);
     const dot = level ? `<span class="day-pill-dot" style="background:${levelColor[level]}"></span>` : "";
-    return `<button class="day-pill ${day.n === activeDay ? "active" : ""}" data-day="${day.n}">
+    const isToday = TODAY_DAY && day.n === TODAY_DAY.n;
+    const cls = ["day-pill", day.n === activeDay ? "active" : "", isToday ? "today" : ""].filter(Boolean).join(" ");
+    const todayTag = isToday ? `<span class="day-pill-today-tag">HOJE</span>` : "";
+    return `<button class="${cls}" data-day="${day.n}">
+      ${todayTag}
       <div class="day-pill-n">DIA ${String(day.n).padStart(2, "0")}${dot}</div>
       <div class="day-pill-date">${day.weekday.split("-")[0]}, ${fmtDate(day.date)}</div>
       <div class="day-pill-title">${day.title}</div>
@@ -267,6 +343,7 @@ function renderDayRail() {
       activeDay = Number(btn.dataset.day);
       renderDayRail();
       renderDayPanel();
+      if (typeof window.updateMapDay === "function") window.updateMapDay(activeDay);
     });
   });
 }
@@ -279,21 +356,46 @@ function renderDayPanel() {
       <span>${a.text}</span>
     </div>`).join("");
 
-  const timelineHtml = day.activities.map((act) => `
-    <div class="timeline-item ${act.highlight ? "highlight" : ""}">
+  const isTodayPanel = TODAY_DAY && day.n === TODAY_DAY.n;
+  let nowMinutes = null;
+  if (isTodayPanel) {
+    const now = new Date();
+    nowMinutes = now.getHours() * 60 + now.getMinutes();
+  }
+  let currentIdx = -1;
+  if (isTodayPanel) {
+    day.activities.forEach((act, i) => {
+      const m = /^(\d{1,2}):(\d{2})/.exec(act.time);
+      if (m) {
+        const mins = Number(m[1]) * 60 + Number(m[2]);
+        if (mins <= nowMinutes) currentIdx = i;
+      }
+    });
+  }
+
+  const timelineHtml = day.activities.map((act, i) => {
+    const timeState = isTodayPanel ? (i < currentIdx ? "past" : i === currentIdx ? "now" : "upcoming") : "";
+    return `
+    <div class="timeline-item ${act.highlight ? "highlight" : ""} ${timeState}" style="animation-delay:${Math.min(i, 8) * 60}ms">
+      ${timeState === "now" ? '<span class="timeline-now-dot"></span>' : ""}
       <div class="timeline-time">${act.time}</div>
       <div class="timeline-text">${act.text}</div>
-    </div>`).join("");
+    </div>`;
+  }).join("");
 
   const placesSeen = [...new Set(day.activities.map((a) => a.place).filter(Boolean))];
-  const galleryHtml = placesSeen.map((p, i) => placeCarouselHTML(p, day.title, i === 0)).join("");
+  const galleryHtml = placesSeen.map((p, i) => placeCarouselHTML(p, day.title, i === 0, i)).join("");
 
   const cityBadges = day.cities.map((c) => `<span class="badge badge-city">${cityName(c)}</span>`).join(" ");
-  const hotelBadge = day.hotelCity ? `<span class="badge">🛏 Dorme em ${cityName(day.hotelCity)}</span>` : `<span class="badge">Voo de retorno</span>`;
+  const bedIcon = `<svg viewBox="0 0 24 24" fill="none" class="badge-icon"><path d="M3 18v-7a2 2 0 0 1 2-2h5v5M3 18v2M3 18h18v2M21 18v-4a2 2 0 0 0-2-2h-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="10.5" r="1.3" fill="currentColor"/></svg>`;
+  const planeIcon = `<svg viewBox="0 0 24 24" fill="none" class="badge-icon"><path d="M21 3 2 10l7 3 3 7 3-6 6-11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+  const hotelBadge = day.hotelCity ? `<span class="badge">${bedIcon} Dorme em ${cityName(day.hotelCity)}</span>` : `<span class="badge">${planeIcon} Voo de retorno</span>`;
+  const todayBadge = TODAY_DAY && day.n === TODAY_DAY.n ? `<span class="badge badge-today">Hoje</span>` : "";
 
   dayPanel.innerHTML = `
     <div class="day-panel-head">
       <h3>Dia ${day.n} · ${day.title}</h3>
+      ${todayBadge}
       <span class="badge">${capitalize(day.weekday)}, ${fmtDate(day.date)}</span>
       ${cityBadges}
       ${hotelBadge}
@@ -310,6 +412,7 @@ function renderDayPanel() {
 
 renderDayRail();
 renderDayPanel();
+initTripStatus();
 
 document.getElementById("railPrev")?.addEventListener("click", () => dayRail.scrollBy({ left: -260, behavior: "smooth" }));
 document.getElementById("railNext")?.addEventListener("click", () => dayRail.scrollBy({ left: 260, behavior: "smooth" }));
@@ -334,9 +437,10 @@ function runCountUps() {
 }
 runCountUps();
 
-/* ---------------- Mapa de rota (Leaflet) ---------------- */
+/* ---------------- Mapa de rota, dinâmico por dia (Leaflet) ---------------- */
 (function initMap() {
-  const map = L.map("route-map", { scrollWheelZoom: false, zoomControl: true });
+  const map = L.map("route-map", { scrollWheelZoom: false, zoomControl: false });
+  L.control.zoom({ position: "bottomleft" }).addTo(map);
   window._routeMap = map;
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; OpenStreetMap contributors',
@@ -347,18 +451,83 @@ runCountUps();
     const c = CITIES.find((c) => c.id === id);
     return [c.lat, c.lng];
   });
-  const line = L.polyline(coords, { color: "#b8862f", weight: 3, dashArray: "1 8", lineCap: "round" }).addTo(map);
+  const fullBounds = L.latLngBounds(coords);
+  const goldColor = getComputedStyle(document.documentElement).getPropertyValue("--gold").trim() || "#b8862f";
 
+  // Trilha completa (fundo, sempre visível, sutil)
+  const ghostLine = L.polyline(coords, {
+    color: goldColor, weight: 2, opacity: 0.28, dashArray: "1 9", lineCap: "round",
+  }).addTo(map);
+
+  // Trecho já percorrido até o dia ativo (destaque sólido)
+  const traveledLine = L.polyline([coords[0]], {
+    color: goldColor, weight: 4, opacity: 0.95, lineCap: "round", lineJoin: "round",
+    className: "route-traveled",
+  }).addTo(map);
+
+  const cityMarkers = {};
   CITIES.forEach((c) => {
     const marker = L.circleMarker([c.lat, c.lng], {
-      radius: 7, color: "#16233a", weight: 2, fillColor: "#b8862f", fillOpacity: 1,
+      radius: 6, color: "#16233a", weight: 2, fillColor: "#8a94a6", fillOpacity: 0.55, opacity: 0.55,
     }).addTo(map);
     marker.bindPopup(`<strong>${c.name}</strong><br>${c.country}`);
+    cityMarkers[c.id] = marker;
   });
 
-  map.fitBounds(line.getBounds(), { padding: [24, 24] });
+  const hereIcon = L.divIcon({
+    className: "here-marker",
+    html: '<span class="here-ping"></span><span class="here-dot"></span>',
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+  const hereMarker = L.marker(coords[0], { icon: hereIcon, zIndexOffset: 1000, interactive: false }).addTo(map);
+
+  const dayLabel = document.getElementById("mapDayLabel");
+
+  function cityOf(id) { return CITIES.find((c) => c.id === id); }
+
+  function updateMapDay(dayNumber, opts) {
+    const day = DAYS.find((d) => d.n === dayNumber);
+    if (!day) return;
+    const posId = day.hotelCity || day.cities[day.cities.length - 1];
+    const pos = cityOf(posId);
+    if (!pos) return;
+
+    // até que índice da rota já foi percorrido nesse dia
+    let lastIdx = 0;
+    ROUTE_DAY.forEach((d, i) => { if (d <= dayNumber) lastIdx = i; });
+    traveledLine.setLatLngs(coords.slice(0, lastIdx + 1));
+
+    const reached = new Set(ROUTE_ORDER.filter((id, i) => ROUTE_DAY[i] <= dayNumber));
+    CITIES.forEach((c) => {
+      const m = cityMarkers[c.id];
+      const isReached = reached.has(c.id);
+      const isHere = c.id === posId;
+      m.setStyle({
+        fillColor: isReached ? goldColor : "#8a94a6",
+        fillOpacity: isHere ? 1 : isReached ? 0.9 : 0.45,
+        opacity: isReached ? 1 : 0.45,
+        radius: isHere ? 8 : 6,
+      });
+    });
+
+    hereMarker.setLatLng([pos.lat, pos.lng]);
+    if (dayLabel) {
+      dayLabel.innerHTML = `<span class="map-day-n">DIA ${String(dayNumber).padStart(2, "0")}</span><span>${pos.name}</span>`;
+    }
+
+    if (!opts || !opts.silent) {
+      map.flyTo([pos.lat, pos.lng], window.innerWidth < 720 ? 6.2 : 6.8, { duration: 1.1, easeLinearity: 0.25 });
+    }
+  }
+  window.updateMapDay = updateMapDay;
+
+  map.fitBounds(fullBounds, { padding: [24, 24] });
   document.getElementById("statCities").dataset.count = CITIES.length;
   runCountUps();
+
+  // posição inicial sem animar a câmera (já enquadramos a rota inteira)
+  setTimeout(() => updateMapDay(activeDay, { silent: true }), 300);
 })();
 
 /* ---------------- Hospedagem ---------------- */
@@ -468,11 +637,13 @@ function renderBudget() {
   const perPersonBRL = totalBRL / TRIP_META.travelers;
   const hasEstimate = values.some((c) => c.estimativa && c.valor > 0);
 
-  document.getElementById("budgetTotals").innerHTML = `
-    <div class="total-card"><span>Total da viagem</span><b>${fmtEUR(total)}</b><small>${fmtBRL(totalBRL)}${hasEstimate ? " · inclui estimativas *" : ""}</small></div>
-    <div class="total-card"><span>Por pessoa (4 adultos)</span><b>${fmtEUR(perPerson)}</b><small>${fmtBRL(perPersonBRL)}</small></div>
-    <div class="total-card"><span>Cotação usada</span><b>${rate.toFixed(2)}</b><small>1 € = R$ ${rate.toFixed(2)} (editável acima)</small></div>
-  `;
+  animateNumber(document.getElementById("totalEUR"), total, fmtEUR);
+  animateNumber(document.getElementById("totalBRL"), totalBRL, fmtBRL);
+  animateNumber(document.getElementById("perPersonEUR"), perPerson, fmtEUR);
+  animateNumber(document.getElementById("perPersonBRL"), perPersonBRL, fmtBRL);
+  animateNumber(document.getElementById("rateDisplay"), rate, (v) => v.toFixed(2));
+  document.getElementById("totalEstNote").textContent = hasEstimate ? " · inclui estimativas *" : "";
+  document.getElementById("rateNote").textContent = `1 € = R$ ${rate.toFixed(2)} (editável acima)`;
 
   const max = Math.max(1, ...values.map((c) => Number(c.valor || 0)));
   document.getElementById("budgetBars").innerHTML = values
@@ -570,10 +741,18 @@ renderReservas();
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-  document.querySelectorAll(
-    "#hospedagemGrid .card, #transporteGrid .card, .rate-box, .totals-row, #fontesList"
-  ).forEach((el) => {
+  document.querySelectorAll("#hospedagemGrid .card, #transporteGrid .card").forEach((el, i) => {
     el.classList.add("reveal");
+    el.style.transitionDelay = `${Math.min(i, 6) * 70}ms`;
+    io.observe(el);
+  });
+  document.querySelectorAll(".rate-box, #fontesList").forEach((el) => {
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+  document.querySelectorAll(".totals-row .total-card").forEach((el, i) => {
+    el.classList.add("reveal");
+    el.style.transitionDelay = `${i * 90}ms`;
     io.observe(el);
   });
 })();

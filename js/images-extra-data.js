@@ -1,629 +1,628 @@
-/* Fotos extras (2a e 3a imagem) por local, para o carrossel.
-   Gerado a partir de images/manifest-extra.json. */
+/* Fotos extras (2a e 3a imagem) por local, priorizando inverno.
+   Gerado a partir dos lotes winter_batch_*.json. */
 const PLACE_IMAGES_EXTRA = {
-  "lisboa": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Miradouro_de_Santa_Luzia_View_over_Alfama%2C_Lisbon_%2854733651122%29.jpg/1280px-Miradouro_de_Santa_Luzia_View_over_Alfama%2C_Lisbon_%2854733651122%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Miradouro_de_Santa_Luzia_View_over_Alfama,_Lisbon_(54733651122).jpg",
-      "author": "Dale Cruse",
-      "license": "CC BY 4.0",
-      "caption": "Miradouro de Santa Luzia viewpoint overlooking Alfama's rooftops toward the Tagus, a different vantage point over the same district"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lisbon_Cityscape_with_25_de_Abril_Bridge_%2855260752373%29.jpg/1280px-Lisbon_Cityscape_with_25_de_Abril_Bridge_%2855260752373%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Lisbon_Cityscape_with_25_de_Abril_Bridge_(55260752373).jpg",
-      "author": "Michael Gaylard",
-      "license": "CC BY 4.0",
-      "caption": "Panoramic Lisbon cityscape with the 25 de Abril Bridge visible in the distance"
-    }
-  ],
-  "fatima_capelinha": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Capelinha_das_Apari%C3%A7%C3%B5es%2C_2011.jpg/1280px-Capelinha_das_Apari%C3%A7%C3%B5es%2C_2011.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Capelinha_das_Aparições,_2011.jpg",
-      "author": "High Contrast",
-      "license": "CC BY 3.0 DE",
-      "caption": "The Chapel of the Apparitions in Fátima photographed in 2011, a different moment than the primary image"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Capelinha_das_Apari%C3%A7%C3%B5es_%281%29_-_Jul_2008.jpg/1280px-Capelinha_das_Apari%C3%A7%C3%B5es_%281%29_-_Jul_2008.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Capelinha_das_Aparições_(1)_-_Jul_2008.jpg",
-      "author": "Therese C",
-      "license": "CC BY 2.0",
-      "caption": "Pilgrims at the Capelinha das Aparições in Fátima, photographed in July 2008"
-    }
-  ],
-  "fatima_basilica_rosario": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Fatima_BW_2018-10-07_10-36-14.jpg/1280px-Fatima_BW_2018-10-07_10-36-14.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Fatima_BW_2018-10-07_10-36-14.jpg",
-      "author": "Berthold Werner",
-      "license": "CC BY-SA 4.0",
-      "caption": "Basílica de Nossa Senhora do Rosário in Fátima, a daytime view from a different angle"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/F%C3%A1tima_September_2021-3.jpg/1280px-F%C3%A1tima_September_2021-3.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Fátima_September_2021-3.jpg",
-      "author": "Alvesgaspar",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Basílica de Nossa Senhora do Rosário photographed in September 2021"
-    }
-  ],
-  "fatima_basilica_trindade": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fatima_BW_2018-10-05_21-58-50.jpg/1280px-Fatima_BW_2018-10-05_21-58-50.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Fatima_BW_2018-10-05_21-58-50.jpg",
-      "author": "Berthold Werner",
-      "license": "CC BY-SA 3.0",
-      "caption": "The Basílica da Santíssima Trindade in Fátima photographed in the evening"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Fatima_BW_2018-10-07_10-42-43.jpg/1280px-Fatima_BW_2018-10-07_10-42-43.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Fatima_BW_2018-10-07_10-42-43.jpg",
-      "author": "Berthold Werner",
-      "license": "CC BY-SA 4.0",
-      "caption": "Daytime view of the Basílica da Santíssima Trindade in the Sanctuary of Fátima"
-    }
-  ],
-  "porto_hero": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/A_Sunny_Day_Along_the_Douro_River_in_Porto_%2855246840088%29.jpg/1280px-A_Sunny_Day_Along_the_Douro_River_in_Porto_%2855246840088%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:A_Sunny_Day_Along_the_Douro_River_in_Porto_(55246840088).jpg",
-      "author": "Michael Gaylard",
-      "license": "CC BY 4.0",
-      "caption": "Sunny daytime view along the Douro River waterfront in Porto"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Serra_do_Pilar_Monastery_and_Ponte_Lu%C3%ADs_I_Overlooking_the_Douro_River_in_Porto_%2854821605338%29.jpg/1280px-Serra_do_Pilar_Monastery_and_Ponte_Lu%C3%ADs_I_Overlooking_the_Douro_River_in_Porto_%2854821605338%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Serra_do_Pilar_Monastery_and_Ponte_Luís_I_Overlooking_the_Douro_River_in_Porto_(54821605338).jpg",
-      "author": "Dale Cruse",
-      "license": "CC BY 4.0",
-      "caption": "Serra do Pilar Monastery and the Ponte Luís I bridge rising above the Douro River in Porto"
-    }
-  ],
-  "porto_sao_bento": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Sao_Bento_train_station_in_Porto_%281%29.jpg/1280px-Sao_Bento_train_station_in_Porto_%281%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sao_Bento_train_station_in_Porto_(1).jpg",
-      "author": "Krzysztof Golik",
-      "license": "CC BY-SA 4.0",
-      "caption": "Exterior view of São Bento railway station in Porto"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Azuelo_and_mural%2C_S%C3%A3o_Bento_railway_station%2C_Porto%2C_Portugal.jpg/1280px-Azuelo_and_mural%2C_S%C3%A3o_Bento_railway_station%2C_Porto%2C_Portugal.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Azuelo_and_mural,_São_Bento_railway_station,_Porto,_Portugal.jpg",
-      "author": "Peter K Burian",
-      "license": "CC BY 4.0",
-      "caption": "Close-up of the azulejo tile murals inside São Bento railway station"
-    }
-  ],
-  "porto_se": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Porto_April_2019-17.jpg/1280px-Porto_April_2019-17.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Porto_April_2019-17.jpg",
-      "author": "Alvesgaspar",
-      "license": "CC BY-SA 4.0",
-      "caption": "Street-level view of Porto Cathedral (Sé do Porto)"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/View_of_Porto_old_town_from_Cais_de_Gaia_with_Porto_Cathedral%2C_20250605_1614_9873.jpg/1280px-View_of_Porto_old_town_from_Cais_de_Gaia_with_Porto_Cathedral%2C_20250605_1614_9873.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:View_of_Porto_old_town_from_Cais_de_Gaia_with_Porto_Cathedral,_20250605_1614_9873.jpg",
-      "author": "Jakub Hałun",
-      "license": "CC BY 4.0",
-      "caption": "Porto Cathedral seen across the river from Cais de Gaia, with the old town skyline"
-    }
-  ],
-  "porto_bolsa": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2025-08-07_Porto%2C_Pal%C3%A1cio_da_Bolsa.jpg/1280px-2025-08-07_Porto%2C_Pal%C3%A1cio_da_Bolsa.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:2025-08-07_Porto,_Palácio_da_Bolsa.jpg",
-      "author": "Alexkom000",
-      "license": "CC BY 4.0",
-      "caption": "Exterior facade of the Palácio da Bolsa in Porto, photographed in 2025"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Porto-Pal%C3%A1cio_da_Bolsa-Sala_do_Tribunal-Gr%C3%AAmios-20142910.jpg/1280px-Porto-Pal%C3%A1cio_da_Bolsa-Sala_do_Tribunal-Gr%C3%AAmios-20142910.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Porto-Palácio_da_Bolsa-Sala_do_Tribunal-Grêmios-20142910.jpg",
-      "author": "Daniel VILLAFRUELA",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Sala do Tribunal Comercial, an ornate interior hall of the Palácio da Bolsa"
-    }
-  ],
-  "porto_sao_francisco": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/South_fa%C3%A7ade_of_Igreja_de_S%C3%A3o_Francisco_%28Porto%29.jpg/1280px-South_fa%C3%A7ade_of_Igreja_de_S%C3%A3o_Francisco_%28Porto%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:South_façade_of_Igreja_de_São_Francisco_(Porto).jpg",
-      "author": "John Samuel",
-      "license": "CC BY-SA 4.0",
-      "caption": "South façade and entrance door of the Igreja de São Francisco in Porto"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Igreja_de_S%C3%A3o_Francisco%2C_Porto.jpg/1280px-Igreja_de_S%C3%A3o_Francisco%2C_Porto.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Igreja_de_São_Francisco,_Porto.jpg",
-      "author": "Adriano Miguel M. Batista",
-      "license": "CC BY-SA 4.0",
-      "caption": "Another exterior view of the Igreja de São Francisco in Porto"
-    }
-  ],
-  "porto_gaia": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Port_wine_barrels_at_the_Croft_warehouse_in_Nova_Vila_de_Gaia_-_Apr_2011.jpg/1280px-Port_wine_barrels_at_the_Croft_warehouse_in_Nova_Vila_de_Gaia_-_Apr_2011.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Port_wine_barrels_at_the_Croft_warehouse_in_Nova_Vila_de_Gaia_-_Apr_2011.jpg",
-      "author": "Ken & Nyetta",
-      "license": "CC BY 2.0",
-      "caption": "Port wine barrels stacked inside the Croft cellars in Vila Nova de Gaia"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rabelos_en_el_r%C3%ADo_Duero%2C_Vila_Nova_de_Gaia%2C_Portugal%2C_2012-05-09%2C_DD_14.JPG/1280px-Rabelos_en_el_r%C3%ADo_Duero%2C_Vila_Nova_de_Gaia%2C_Portugal%2C_2012-05-09%2C_DD_14.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Rabelos_en_el_río_Duero,_Vila_Nova_de_Gaia,_Portugal,_2012-05-09,_DD_14.JPG",
-      "author": "Diego Delso",
-      "license": "CC BY-SA 3.0",
-      "caption": "Traditional rabelo boats on the Douro River in front of Vila Nova de Gaia"
-    }
-  ],
-  "santiago_catedral": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Santiago_cathedral_2021.jpg/1280px-Santiago_cathedral_2021.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Santiago_cathedral_2021.jpg",
-      "author": "Fernando",
-      "license": "CC BY-SA 4.0",
-      "caption": "West façade of Santiago de Compostela Cathedral, photographed in 2021"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/2013_-_Fachada_do_Obradoiro_desde_a_Alameda._Catedral_de_Santiago_de_Compostela-2.jpg/1280px-2013_-_Fachada_do_Obradoiro_desde_a_Alameda._Catedral_de_Santiago_de_Compostela-2.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:2013_-_Fachada_do_Obradoiro_desde_a_Alameda._Catedral_de_Santiago_de_Compostela-2.jpg",
-      "author": "Luis Miguel Bugallo Sánchez",
-      "license": "CC BY-SA 3.0",
-      "caption": "The Obradoiro façade of Santiago Cathedral seen from the Alameda park"
-    }
-  ],
-  "santiago_mercado": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/2026._Mercado_de_Abastos_de_Santiago_de_Compostela._Galiza-1.jpg/1280px-2026._Mercado_de_Abastos_de_Santiago_de_Compostela._Galiza-1.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:2026._Mercado_de_Abastos_de_Santiago_de_Compostela._Galiza-1.jpg",
-      "author": "Luis Miguel Bugallo Sánchez",
-      "license": "CC BY-SA 4.0",
-      "caption": "A different view of the Mercado de Abastos food market in Santiago de Compostela"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Praza_de_abastos_de_Santiago_de_Compostela.jpg/1280px-Praza_de_abastos_de_Santiago_de_Compostela.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Praza_de_abastos_de_Santiago_de_Compostela.jpg",
-      "author": "Luis Miguel Bugallo Sánchez",
-      "license": "CC BY-SA 3.0",
-      "caption": "Wider view of the market square (Praza de Abastos) in Santiago de Compostela"
-    }
-  ],
-  "viena_stephansdom": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wien_-_Stephansdom_%281%29.JPG/1280px-Wien_-_Stephansdom_%281%29.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien_-_Stephansdom_(1).JPG",
-      "author": "C.Stadler/Bwag",
-      "license": "CC BY-SA 4.0",
-      "caption": "Western view of St. Stephen's Cathedral in Vienna"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Wien%2C_Stephansdom_--_2018_--_3295.jpg/1280px-Wien%2C_Stephansdom_--_2018_--_3295.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien,_Stephansdom_--_2018_--_3295.jpg",
-      "author": "Dietmar Rabich",
-      "license": "CC BY-SA 4.0",
-      "caption": "Detail view of St. Stephen's Cathedral in Vienna, 2018"
-    }
-  ],
-  "viena_graben": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Plague_column_pests%C3%A4ule_Graben_Wien_Vienna_Austria.jpg/1280px-Plague_column_pests%C3%A4ule_Graben_Wien_Vienna_Austria.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Plague_column_pestsäule_Graben_Wien_Vienna_Austria.jpg",
-      "author": "Jebulon",
-      "license": "CC BY-SA 3.0",
-      "caption": "The Plague Column (Pestsäule) landmark on the Graben pedestrian street in Vienna"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sttephanplatz%2C_Graben%2C_Vienna%2C_Austria.jpg/1280px-Sttephanplatz%2C_Graben%2C_Vienna%2C_Austria.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sttephanplatz,_Graben,_Vienna,_Austria.jpg",
-      "author": "Marek Ślusarczyk",
-      "license": "CC BY 2.5",
-      "caption": "The Graben and Stephansplatz in Vienna at dusk"
-    }
-  ],
-  "viena_hofburg": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Amalienburg%2C_Hofburg%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_21.jpg/1280px-Amalienburg%2C_Hofburg%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_21.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Amalienburg,_Hofburg,_Viena,_Austria,_2020-01-31,_DD_21.jpg",
-      "author": "Diego Delso",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Amalienburg wing of the Hofburg Palace complex in Vienna"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wien%2C_Hofburg_--_2018_--_3187.jpg/1280px-Wien%2C_Hofburg_--_2018_--_3187.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien,_Hofburg_--_2018_--_3187.jpg",
-      "author": "Dietmar Rabich",
-      "license": "CC BY-SA 4.0",
-      "caption": "Another view of the Hofburg Palace complex in Vienna"
-    }
-  ],
-  "viena_biblioteca": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Allegory_of_war_and_Law_-_Prunksaal_-_Austrian_National_Library.jpg/1280px-Allegory_of_war_and_Law_-_Prunksaal_-_Austrian_National_Library.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Allegory_of_war_and_Law_-_Prunksaal_-_Austrian_National_Library.jpg",
-      "author": "Daniel Gran",
-      "license": "CC BY 2.5",
-      "caption": "The ceiling fresco 'Allegory of War and Law' by Daniel Gran in the Prunksaal of the Austrian National Library"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Big_Books_Prunksaal_Hofbibliothek_Wien_State_Hall_of_the_Austrian_National_Library_Vienna_onb.JPG/1280px-Big_Books_Prunksaal_Hofbibliothek_Wien_State_Hall_of_the_Austrian_National_Library_Vienna_onb.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Big_Books_Prunksaal_Hofbibliothek_Wien_State_Hall_of_the_Austrian_National_Library_Vienna_onb.JPG",
-      "author": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "caption": "Rows of historic bookshelves inside the State Hall of the Austrian National Library"
-    }
-  ],
-  "viena_rathausplatz": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Wien-Rathausplatz-271206-after-christmas.jpg/1280px-Wien-Rathausplatz-271206-after-christmas.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien-Rathausplatz-271206-after-christmas.jpg",
-      "author": "Clemens Pfeiffer",
-      "license": "Attribution",
-      "caption": "Rathausplatz in Vienna shortly after Christmas, with the market stalls cleared away"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Wien_01_Rathausplatz_b.jpg/1280px-Wien_01_Rathausplatz_b.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien_01_Rathausplatz_b.jpg",
-      "author": "Gugerell",
-      "license": "CC0",
-      "caption": "Rathausplatz in Vienna looking northwest, without the Christmas market"
-    }
-  ],
-  "viena_spittelberg": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Wien_Spittelberg_Gasse_11_Fassade.jpg/1280px-Wien_Spittelberg_Gasse_11_Fassade.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien_Spittelberg_Gasse_11_Fassade.jpg",
-      "author": "Isiwal",
-      "license": "CC BY-SA 3.0",
-      "caption": "Baroque stucco facade of a historic house at Spittelberggasse 11 in Vienna, built around 1720"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Wien_Spittelberg_Gasse_5_Portal.jpg/1280px-Wien_Spittelberg_Gasse_5_Portal.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Wien_Spittelberg_Gasse_5_Portal.jpg",
-      "author": "Isiwal",
-      "license": "CC BY-SA 3.0",
-      "caption": "Historic doorway of a protected heritage house on Spittelberggasse 5 in Vienna"
-    }
-  ],
-  "schonbrunn_palacio": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Schoenbrunn_Palace_as_seen_from_Neptune_Fountain%2C_September_2016.jpg/1280px-Schoenbrunn_Palace_as_seen_from_Neptune_Fountain%2C_September_2016.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Schoenbrunn_Palace_as_seen_from_Neptune_Fountain,_September_2016.jpg",
-      "author": "Martin Falbisoner",
-      "license": "CC BY-SA 4.0",
-      "caption": "Schönbrunn Palace viewed from the Neptune Fountain in the palace gardens"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Schonbrunn_Palace_Close-Up_of_Facade_1.jpg/1280px-Schonbrunn_Palace_Close-Up_of_Facade_1.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Schonbrunn_Palace_Close-Up_of_Facade_1.jpg",
-      "author": "Amaury Laporte",
-      "license": "CC BY 2.0",
-      "caption": "Close-up detail of the ochre-and-white facade of Schönbrunn Palace"
-    }
-  ],
-  "schonbrunn_gloriette": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gloriette_Sch%C3%B6nbrunn_Wien_%28Zuschnitt%29.jpg/1280px-Gloriette_Sch%C3%B6nbrunn_Wien_%28Zuschnitt%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Gloriette_Schönbrunn_Wien_(Zuschnitt).jpg",
-      "author": "Thomas Wolf, www.foto-tw.de",
-      "license": "CC BY-SA 3.0 DE",
-      "caption": "The Gloriette monument above the Schönbrunn Palace gardens, a cropped view"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Gloriette_detail.jpg/1280px-Gloriette_detail.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Gloriette_detail.jpg",
-      "author": "MrPanyGoff",
-      "license": "CC BY-SA 3.0",
-      "caption": "Architectural detail of the Gloriette structure in the Schönbrunn gardens"
-    }
-  ],
-  "hallstatt": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/View_of_Hallstatt_waterfront_and_churches_from_Hallst%C3%A4tter_See.jpg/1280px-View_of_Hallstatt_waterfront_and_churches_from_Hallst%C3%A4tter_See.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:View_of_Hallstatt_waterfront_and_churches_from_Hallstätter_See.jpg",
-      "author": "David Kernan",
-      "license": "CC BY 4.0",
-      "caption": "The historic waterfront and churches of Hallstatt seen from the lake, a closer framing than the panoramic hero shot"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Hallstatt_-_8856135370.jpg/1280px-Hallstatt_-_8856135370.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_8856135370.jpg",
-      "author": "Kevin Poh",
-      "license": "CC BY 2.0",
-      "caption": "View of the Austrian village of Hallstatt from the lake, by a different photographer"
-    }
-  ],
-  "salzburg_catedral": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Salzburg_Cathedral_2014.JPG/1280px-Salzburg_Cathedral_2014.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Salzburg_Cathedral_2014.JPG",
-      "author": "M(e)ister Eiskalt",
-      "license": "CC BY-SA 4.0",
-      "caption": "The facade of Salzburg Cathedral photographed in 2014"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Salzburg_Dom_facade_2.JPG/1280px-Salzburg_Dom_facade_2.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Salzburg_Dom_facade_2.JPG",
-      "author": "Wikinaut",
-      "license": "CC BY-SA 3.0",
-      "caption": "West facade of Salzburg Cathedral from a different angle"
-    }
-  ],
-  "salzburg_mirabell": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Mirabell_Gardens_Dwarf_Statue_I.jpg/1280px-Mirabell_Gardens_Dwarf_Statue_I.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Mirabell_Gardens_Dwarf_Statue_I.jpg",
-      "author": "Sumit Surai",
-      "license": "CC BY-SA 4.0",
-      "caption": "A whimsical dwarf statue in the Dwarf Garden inside Mirabell Gardens, Salzburg"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mirabell_Palace_1.jpg/1280px-Mirabell_Palace_1.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Mirabell_Palace_1.jpg",
-      "author": "Richard Symonds",
-      "license": "CC BY-SA 4.0",
-      "caption": "Another view of the Mirabell Palace gardens in Salzburg"
-    }
-  ],
-  "salzburg_getreidegasse": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Getreidegasse_Salzburg_2023-09-27_03.jpg/1280px-Getreidegasse_Salzburg_2023-09-27_03.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Getreidegasse_Salzburg_2023-09-27_03.jpg",
-      "author": "Leonhard Lenz",
-      "license": "CC0",
-      "caption": "Getreidegasse street in Salzburg, photographed in 2023"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Salzburg_Getreidegasse_90_IMG_20240515_1238.jpg/1280px-Salzburg_Getreidegasse_90_IMG_20240515_1238.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Salzburg_Getreidegasse_90_IMG_20240515_1238.jpg",
-      "author": "Karlunun",
-      "license": "CC0",
-      "caption": "View east along Getreidegasse from above St. Blasius, Salzburg, May 2024"
-    }
-  ],
-  "estrasburgo_petite_france": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/2007%2C_Petite_France_%C3%A0_Strasbourg_10.jpg/1280px-2007%2C_Petite_France_%C3%A0_Strasbourg_10.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:2007,_Petite_France_à_Strasbourg_10.jpg",
-      "author": "Syced",
-      "license": "CC0",
-      "caption": "A 2007 view of the half-timbered houses of Petite France in Strasbourg"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/2007%2C_Petite_France_%C3%A0_Strasbourg_5.jpg/1280px-2007%2C_Petite_France_%C3%A0_Strasbourg_5.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:2007,_Petite_France_à_Strasbourg_5.jpg",
-      "author": "Syced",
-      "license": "CC0",
-      "caption": "Another framing of the canals and timber-framed houses of Petite France, Strasbourg"
-    }
-  ],
-  "estrasburgo_catedral": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cathedrale_Notre_Dame_Strasboug_France.jpg/1280px-Cathedrale_Notre_Dame_Strasboug_France.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Cathedrale_Notre_Dame_Strasboug_France.jpg",
-      "author": "Wolfgang Moroder",
-      "license": "CC BY-SA 4.0",
-      "caption": "The south face of Strasbourg Cathedral"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cath%C3%A9drale_Notre-Dame_-_ext%C3%A9rieur_-_rosace_%28Strasbourg%29.jpg/1280px-Cath%C3%A9drale_Notre-Dame_-_ext%C3%A9rieur_-_rosace_%28Strasbourg%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Cathédrale_Notre-Dame_-_extérieur_-_rosace_(Strasbourg).jpg",
-      "author": "Gzen92",
-      "license": "CC BY-SA 4.0",
-      "caption": "The rose window on the exterior of Strasbourg Cathedral"
-    }
-  ],
-  "paris_louvre": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Louvre_Courtyard%2C_Looking_West.jpg/1280px-Louvre_Courtyard%2C_Looking_West.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Louvre_Courtyard,_Looking_West.jpg",
-      "author": "Benh LIEU SONG",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Louvre's Napoleon Courtyard at dusk, looking west"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Views_of_the_Arc_de_Triomphe_du_Carrousel_with_the_Louvre_Pyramid_in_2006_%28162330979%29.jpg/1280px-Views_of_the_Arc_de_Triomphe_du_Carrousel_with_the_Louvre_Pyramid_in_2006_%28162330979%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Views_of_the_Arc_de_Triomphe_du_Carrousel_with_the_Louvre_Pyramid_in_2006_(162330979).jpg",
-      "author": "Kurt Raschke",
-      "license": "CC BY 2.0",
-      "caption": "The Arc de Triomphe du Carrousel with the Louvre Pyramid in the background, 2006"
-    }
-  ],
-  "paris_tuileries": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Grand_bassin_octogonal_Jardin_des_Tuileries_003.jpg/1280px-Grand_bassin_octogonal_Jardin_des_Tuileries_003.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Grand_bassin_octogonal_Jardin_des_Tuileries_003.jpg",
-      "author": "Moonik",
-      "license": "CC BY-SA 3.0",
-      "caption": "The octagonal basin at the heart of the Tuileries Garden"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tuileries_Garden_Fairgrounds_at_Sunset.jpg/1280px-Tuileries_Garden_Fairgrounds_at_Sunset.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Tuileries_Garden_Fairgrounds_at_Sunset.jpg",
-      "author": "DiscoA340",
-      "license": "CC BY-SA 4.0",
-      "caption": "Fairground rides in the Tuileries Garden at sunset"
-    }
-  ],
-  "paris_opera": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Palais_Garnier_Paris_June_2010_001.jpg/1280px-Palais_Garnier_Paris_June_2010_001.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Palais_Garnier_Paris_June_2010_001.jpg",
-      "author": "King of Hearts",
-      "license": "CC BY-SA 4.0",
-      "caption": "The exterior of the Palais Garnier as seen from the Galeries Lafayette"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Opera_Garnier_Grand_Escalier.jpg/1280px-Opera_Garnier_Grand_Escalier.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Opera_Garnier_Grand_Escalier.jpg",
-      "author": "Benh LIEU SONG",
-      "license": "CC BY-SA 3.0",
-      "caption": "The Grand Staircase inside the Palais Garnier opera house"
-    }
-  ],
-  "paris_montmartre": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Paris_75018_Basilique_du_Sacr%C3%A9-C%C5%93ur_south_facade_stairs_20041107_%281%29.jpg/1280px-Paris_75018_Basilique_du_Sacr%C3%A9-C%C5%93ur_south_facade_stairs_20041107_%281%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Paris_75018_Basilique_du_Sacré-Cœur_south_facade_stairs_20041107_(1).jpg",
-      "author": "Bernard bill5",
-      "license": "CC BY-SA 3.0",
-      "caption": "The south facade and steps of the Sacré-Cœur Basilica in Montmartre"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Paris%2C_Sacr%C3%A9-C%C5%93ur_de_Montmartre_--_2014_--_1197.jpg/1280px-Paris%2C_Sacr%C3%A9-C%C5%93ur_de_Montmartre_--_2014_--_1197.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Paris,_Sacré-Cœur_de_Montmartre_--_2014_--_1197.jpg",
-      "author": "Dietmar Rabich",
-      "license": "CC BY-SA 4.0",
-      "caption": "The view over Paris from the steps of the Sacré-Cœur Basilica"
-    }
-  ],
-  "paris_tertre": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Paris_Montmartre_Place_du_Tertre_evening_2026-01-03-1.jpg/1280px-Paris_Montmartre_Place_du_Tertre_evening_2026-01-03-1.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Paris_Montmartre_Place_du_Tertre_evening_2026-01-03-1.jpg",
-      "author": "Renée Kools",
-      "license": "CC BY 4.0",
-      "caption": "Place du Tertre in the evening, with its cafe terraces lit up"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Montmartre%2C_Place_du_Tertre._Fortepan_69842.jpg/1280px-Montmartre%2C_Place_du_Tertre._Fortepan_69842.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Montmartre,_Place_du_Tertre._Fortepan_69842.jpg",
-      "author": "Fortepan",
-      "license": "CC BY-SA 3.0",
-      "caption": "An archival photograph of Place du Tertre in Montmartre from the Fortepan collection"
-    }
-  ],
-  "paris_moulin_rouge": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/014_Paris_Moulin_Rouge_cabaret_-_Pigalle_district_in_Paris%2C_France.jpg/1280px-014_Paris_Moulin_Rouge_cabaret_-_Pigalle_district_in_Paris%2C_France.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:014_Paris_Moulin_Rouge_cabaret_-_Pigalle_district_in_Paris,_France.jpg",
-      "author": "Marek Ślusarczyk",
-      "license": "CC BY 3.0",
-      "caption": "The Moulin Rouge cabaret lit up at night in the Pigalle district"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Moulin-Rouge_2009.jpg/1280px-Moulin-Rouge_2009.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Moulin-Rouge_2009.jpg",
-      "author": "Nicolas Richoffer",
-      "license": "CC BY-SA 4.0",
-      "caption": "The daytime facade of the Moulin Rouge, photographed in 2009"
-    }
-  ],
-  "paris_notredame": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Paris_Notre-Dame_East_View_02.JPG/1280px-Paris_Notre-Dame_East_View_02.JPG",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Paris_Notre-Dame_East_View_02.JPG",
-      "author": "Uoaei1",
-      "license": "CC BY-SA 4.0",
-      "caption": "The apse of Notre-Dame de Paris and the Fountain of the Virgin, seen from the east"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cath%C3%A9drale_Notre_Dame%2C_Paris_30_September_2015.jpg/1280px-Cath%C3%A9drale_Notre_Dame%2C_Paris_30_September_2015.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Cathédrale_Notre_Dame,_Paris_30_September_2015.jpg",
-      "author": "Antonin Subtil",
-      "license": "CC BY-SA 4.0",
-      "caption": "Notre-Dame de Paris viewed from the Left Bank in 2015, before the 2019 fire"
-    }
-  ],
-  "paris_saintechapelle": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sainte_Chapelle_Pano.jpg/1280px-Sainte_Chapelle_Pano.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sainte_Chapelle_Pano.jpg",
-      "author": "Gennadii Saus",
-      "license": "CC BY-SA 4.0",
-      "caption": "A wide panoramic view of the stained-glass interior of Sainte-Chapelle"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Santa_Capilla%2C_Par%C3%ADs%2C_Francia%2C_2022-11-01%2C_DD_80-82_HDR.jpg/1280px-Santa_Capilla%2C_Par%C3%ADs%2C_Francia%2C_2022-11-01%2C_DD_80-82_HDR.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Santa_Capilla,_París,_Francia,_2022-11-01,_DD_80-82_HDR.jpg",
-      "author": "Diego Delso",
-      "license": "CC BY-SA 4.0",
-      "caption": "HDR view of the upper chapel of Sainte-Chapelle, photographed in 2022"
-    }
-  ],
-  "paris_marais": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Paris_3e_Place_des_Vosges_Arcades_895.jpg/1280px-Paris_3e_Place_des_Vosges_Arcades_895.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Paris_3e_Place_des_Vosges_Arcades_895.jpg",
-      "author": "GFreihalter",
-      "license": "CC BY-SA 3.0",
-      "caption": "The arcades surrounding Place des Vosges in the Marais district"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Statue_of_Louis_XIII_%40_Square_Louis_XIII_%40_Place_des_Vosges_%40_Marais_%40_Paris_%2831669556786%29.jpg/1280px-Statue_of_Louis_XIII_%40_Square_Louis_XIII_%40_Place_des_Vosges_%40_Marais_%40_Paris_%2831669556786%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Louis_XIII_@_Square_Louis_XIII_@_Place_des_Vosges_@_Marais_@_Paris_(31669556786).jpg",
-      "author": "Guilhem Vellut",
-      "license": "CC BY 2.0",
-      "caption": "The equestrian statue of Louis XIII at the center of Place des Vosges"
-    }
-  ],
-  "paris_eiffel": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Eiffel_Tower_at_evening%2C_Paris%2C_France_%28Ank_Kumar%29_01.jpg/1280px-Eiffel_Tower_at_evening%2C_Paris%2C_France_%28Ank_Kumar%29_01.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_at_evening,_Paris,_France_(Ank_Kumar)_01.jpg",
-      "author": "Ank Kumar",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Eiffel Tower illuminated in the evening, a contrast to the sunrise hero shot"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Pont_de_Bir-Hakeim_and_the_Eiffel_Tower%2C_April_2007.jpg/1280px-Pont_de_Bir-Hakeim_and_the_Eiffel_Tower%2C_April_2007.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Pont_de_Bir-Hakeim_and_the_Eiffel_Tower,_April_2007.jpg",
-      "author": "Alexandre Duret-Lutz",
-      "license": "CC BY-SA 2.0",
-      "caption": "The Eiffel Tower seen alongside the Pont de Bir-Hakeim bridge"
-    }
-  ],
-  "paris_sena": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Evening_%40_Seine_%40_Paris_%2825555701775%29.jpg/1280px-Evening_%40_Seine_%40_Paris_%2825555701775%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Evening_@_Seine_@_Paris_(25555701775).jpg",
-      "author": "Guilhem Vellut",
-      "license": "CC BY 2.0",
-      "caption": "The Seine River in Paris at dusk, a different vantage from the night shot"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Seine_River_in_Paris_%283385437216%29.jpg/1280px-Seine_River_in_Paris_%283385437216%29.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Seine_River_in_Paris_(3385437216).jpg",
-      "author": "Herry Lawford",
-      "license": "CC BY 2.0",
-      "caption": "The Seine on a spring evening in Paris"
-    }
-  ],
-  "versailles_palacio": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg/1280px-Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg",
-      "author": "Basile Morin",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Palace of Versailles reflected in the water of the Orangerie garden"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Parterre_du_Midi_Garden_pond_and_Palace_of_Versailles_at_golden_hour_with_blue_sky_in_France.jpg/1280px-Parterre_du_Midi_Garden_pond_and_Palace_of_Versailles_at_golden_hour_with_blue_sky_in_France.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Parterre_du_Midi_Garden_pond_and_Palace_of_Versailles_at_golden_hour_with_blue_sky_in_France.jpg",
-      "author": "Basile Morin",
-      "license": "CC BY-SA 4.0",
-      "caption": "The Palace of Versailles and Parterre du Midi pond at golden hour"
-    }
-  ],
-  "versailles_jardins": [
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Gardens_of_the_Grand_Trianon.jpg/1280px-Gardens_of_the_Grand_Trianon.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Gardens_of_the_Grand_Trianon.jpg",
-      "author": "DiscoA340",
-      "license": "CC BY-SA 4.0",
-      "caption": "A different view of the formal gardens of the Grand Trianon at Versailles"
-    },
-    {
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Grand_Trianon_Gardens_-_Versailles%2C_France_-_April_22%2C_2011.jpg/1280px-Grand_Trianon_Gardens_-_Versailles%2C_France_-_April_22%2C_2011.jpg",
-      "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Grand_Trianon_Gardens_-_Versailles,_France_-_April_22,_2011.jpg",
-      "author": "Giorgio Galeotti",
-      "license": "CC BY 4.0",
-      "caption": "The Grand Trianon gardens at Versailles, photographed in April 2011"
-    }
-  ]
-}
-;
+    "lisboa":  [
+                   {
+                       "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Lisboa_%2846400558052%29.jpg/1280px-Lisboa_%2846400558052%29.jpg",
+                       "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Lisboa_(46400558052).jpg",
+                       "author":  "Sergei Gussev",
+                       "license":  "CC BY 2.0",
+                       "caption":  "Praça de D. Pedro IV (Rossio) decorated with Christmas lights at night, Lisbon, in December"
+                   },
+                   {
+                       "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Lisbon_Christmas_03_%2851801117857%29.jpg/1280px-Lisbon_Christmas_03_%2851801117857%29.jpg",
+                       "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Lisbon_Christmas_03_(51801117857).jpg",
+                       "author":  "Sergio",
+                       "license":  "Public domain",
+                       "caption":  "A Lisbon city square decorated for Christmas at night"
+                   }
+               ],
+    "fatima_capelinha":  [
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/20200204_Apparitions_6590_%2849658118787%29.jpg/1280px-20200204_Apparitions_6590_%2849658118787%29.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200204_Apparitions_6590_(49658118787).jpg",
+                                 "author":  "Ray Swi-hymn",
+                                 "license":  "CC BY-SA 2.0",
+                                 "caption":  "The Capelinha das Aparições chapel and pilgrims in Fátima in February winter light"
+                             },
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/A_chapel_built_in_her_honour_%2854732117671%29.jpg/1280px-A_chapel_built_in_her_honour_%2854732117671%29.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:A_chapel_built_in_her_honour_(54732117671).jpg",
+                                 "author":  "eebAMDG",
+                                 "license":  "CC BY-SA 4.0",
+                                 "caption":  "The Capelinha das Aparições, the small chapel built at the site of the Marian apparitions in Fátima, in January"
+                             }
+                         ],
+    "fatima_basilica_rosario":  [
+                                    {
+                                        "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/20200204_ShrineFatima_6540_%2849657822056%29.jpg/1280px-20200204_ShrineFatima_6540_%2849657822056%29.jpg",
+                                        "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200204_ShrineFatima_6540_(49657822056).jpg",
+                                        "author":  "Ray Swi-hymn",
+                                        "license":  "CC BY-SA 2.0",
+                                        "caption":  "The Sanctuary of Fátima and the Basílica de Nossa Senhora do Rosário in February winter"
+                                    },
+                                    {
+                                        "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/20200204_LadyRosary_6591_%2849658108947%29.jpg/1280px-20200204_LadyRosary_6591_%2849658108947%29.jpg",
+                                        "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200204_LadyRosary_6591_(49658108947).jpg",
+                                        "author":  "Ray Swi-hymn",
+                                        "license":  "CC BY-SA 2.0",
+                                        "caption":  "Basílica de Nossa Senhora do Rosário in Fátima in February winter"
+                                    }
+                                ],
+    "fatima_basilica_trindade":  [
+                                     {
+                                         "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Bas%C3%ADlica_da_Sant%C3%ADssima_Trindade_-_F%C3%A1tima_-_Portugal_%2812794619363%29.jpg/1280px-Bas%C3%ADlica_da_Sant%C3%ADssima_Trindade_-_F%C3%A1tima_-_Portugal_%2812794619363%29.jpg",
+                                         "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Basílica_da_Santíssima_Trindade_-_Fátima_-_Portugal_(12794619363).jpg",
+                                         "author":  "Vitor Oliveira",
+                                         "license":  "CC BY-SA 2.0",
+                                         "caption":  "Basílica da Santíssima Trindade, Fátima, in December winter light"
+                                     },
+                                     {
+                                         "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Bas%C3%ADlica_da_Sant%C3%ADssima_Trindade_-_F%C3%A1tima_-_Portugal_%288719629549%29.jpg/1280px-Bas%C3%ADlica_da_Sant%C3%ADssima_Trindade_-_F%C3%A1tima_-_Portugal_%288719629549%29.jpg",
+                                         "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Basílica_da_Santíssima_Trindade_-_Fátima_-_Portugal_(8719629549).jpg",
+                                         "author":  "Vitor Oliveira",
+                                         "license":  "CC BY-SA 2.0",
+                                         "caption":  "The circular Basílica da Santíssima Trindade in Fátima, photographed in December"
+                                     }
+                                 ],
+    "porto_hero":  [
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Sunset_over_Porto_and_the_Douro_River_%2851706664706%29.jpg/1280px-Sunset_over_Porto_and_the_Douro_River_%2851706664706%29.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Sunset_over_Porto_and_the_Douro_River_(51706664706).jpg",
+                           "author":  "Bex Walton",
+                           "license":  "CC BY 2.0",
+                           "caption":  "Sunset over Porto and the Douro River in November"
+                       },
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Rio_Douro_-_Porto_e_Vila_Nova_de_Gaia_-_Portugal_%2830729300714%29.jpg/1280px-Rio_Douro_-_Porto_e_Vila_Nova_de_Gaia_-_Portugal_%2830729300714%29.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Rio_Douro_-_Porto_e_Vila_Nova_de_Gaia_-_Portugal_(30729300714).jpg",
+                           "author":  "Vitor Oliveira",
+                           "license":  "CC BY-SA 2.0",
+                           "caption":  "Porto skyline over the Douro River and Vila Nova de Gaia, photographed in December"
+                       }
+                   ],
+    "porto_sao_bento":  [
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Esta%C3%A7%C3%A3o_de_Porto-S%C3%A3o_Bento_%288227111405%29.jpg/1280px-Esta%C3%A7%C3%A3o_de_Porto-S%C3%A3o_Bento_%288227111405%29.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Estação_de_Porto-São_Bento_(8227111405).jpg",
+                                "author":  "IngolfBLN",
+                                "license":  "CC BY-SA 2.0",
+                                "caption":  "São Bento railway station in Porto in November winter light"
+                            },
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Ornate_Azulejo_Panels_Depicting_Historical_Scenes_at_a_Portuguese_Train_Station_%2855248512166%29.jpg/1280px-Ornate_Azulejo_Panels_Depicting_Historical_Scenes_at_a_Portuguese_Train_Station_%2855248512166%29.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Ornate_Azulejo_Panels_Depicting_Historical_Scenes_at_a_Portuguese_Train_Station_(55248512166).jpg",
+                                "author":  "Michael Gaylard",
+                                "license":  "CC BY 4.0",
+                                "caption":  "Close-up of the ornate blue and white azulejo tile murals inside São Bento railway station, Porto"
+                            }
+                        ],
+    "porto_se":  [
+                     {
+                         "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Oporto._Portugal...._%2854042254813%29.jpg/1280px-Oporto._Portugal...._%2854042254813%29.jpg",
+                         "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Oporto._Portugal...._(54042254813).jpg",
+                         "author":  "Miguel A. García",
+                         "license":  "CC BY 2.0",
+                         "caption":  "Street-level view of Porto Cathedral in November"
+                     },
+                     {
+                         "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Porto_DSCN3122_%2855205506798%29.jpg/1280px-Porto_DSCN3122_%2855205506798%29.jpg",
+                         "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Porto_DSCN3122_(55205506798).jpg",
+                         "author":  "Reading Tom",
+                         "license":  "CC BY 4.0",
+                         "caption":  "Porto Cathedral and old town skyline, photographed in November"
+                     }
+                 ],
+    "porto_bolsa":  [
+                        {
+                            "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/20200130_Bolsa_3468_%2849650079973%29.jpg/1280px-20200130_Bolsa_3468_%2849650079973%29.jpg",
+                            "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200130_Bolsa_3468_(49650079973).jpg",
+                            "author":  "Ray Swi-hymn",
+                            "license":  "CC BY-SA 2.0",
+                            "caption":  "Exterior facade of Palácio da Bolsa in Porto, photographed in January"
+                        },
+                        {
+                            "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/20200130_Bolsa_3384_%2849650930052%29.jpg/1280px-20200130_Bolsa_3384_%2849650930052%29.jpg",
+                            "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200130_Bolsa_3384_(49650930052).jpg",
+                            "author":  "Ray Swi-hymn",
+                            "license":  "CC BY-SA 2.0",
+                            "caption":  "Sala do Tribunal, an ornate interior hall inside the Palácio da Bolsa in Porto"
+                        }
+                    ],
+    "porto_sao_francisco":  [
+                                {
+                                    "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Igreja_de_S%C3%A3o_Francisco_-_Porto_-_Portugal_%2853477872237%29.jpg/1280px-Igreja_de_S%C3%A3o_Francisco_-_Porto_-_Portugal_%2853477872237%29.jpg",
+                                    "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Igreja_de_São_Francisco_-_Porto_-_Portugal_(53477872237).jpg",
+                                    "author":  "Vitor Oliveira",
+                                    "license":  "CC BY-SA 2.0",
+                                    "caption":  "Igreja de São Francisco, Porto\u0027s Gothic church famed for its gilded Baroque interior"
+                                },
+                                {
+                                    "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Igreja_de_S%C3%A3o_Francisco_-_Porto_-_Portugal_%2853523605132%29.jpg/1280px-Igreja_de_S%C3%A3o_Francisco_-_Porto_-_Portugal_%2853523605132%29.jpg",
+                                    "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Igreja_de_São_Francisco_-_Porto_-_Portugal_(53523605132).jpg",
+                                    "author":  "Vitor Oliveira",
+                                    "license":  "CC BY-SA 2.0",
+                                    "caption":  "South facade and Gothic rose window of Igreja de São Francisco, Porto"
+                                }
+                            ],
+    "porto_gaia":  [
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Cais_da_Ribeira_in_Porto_%281%29.jpg/1280px-Cais_da_Ribeira_in_Porto_%281%29.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Cais_da_Ribeira_in_Porto_(1).jpg",
+                           "author":  "Krzysztof Golik",
+                           "license":  "CC BY-SA 4.0",
+                           "caption":  "Cais da Ribeira waterfront in Porto, facing Vila Nova de Gaia, in February winter"
+                       },
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/20200131_Douro_3564_%2849651461352%29.jpg/1280px-20200131_Douro_3564_%2849651461352%29.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:20200131_Douro_3564_(49651461352).jpg",
+                           "author":  "Ray Swi-hymn",
+                           "license":  "CC BY-SA 2.0",
+                           "caption":  "Douro riverside near Vila Nova de Gaia, Porto, in January winter"
+                       }
+                   ],
+    "santiago_catedral":  [
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Torre_da_vela_dende_a_praza_do_Obradoiro._Catedral_de_Santiago_de_Compostela.jpg/1280px-Torre_da_vela_dende_a_praza_do_Obradoiro._Catedral_de_Santiago_de_Compostela.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Torre_da_vela_dende_a_praza_do_Obradoiro._Catedral_de_Santiago_de_Compostela.jpg",
+                                  "author":  "Lmbuga",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Bell tower of the Catedral de Santiago de Compostela seen from the Praza do Obradoiro"
+                              },
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/2026_Torre_da_fachada_do_Obradoiro_vista_dende_a_Praza_de_Prater%C3%ADas._Catedral_de_Santiago_de_Compostela.jpg/1280px-2026_Torre_da_fachada_do_Obradoiro_vista_dende_a_Praza_de_Prater%C3%ADas._Catedral_de_Santiago_de_Compostela.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:2026_Torre_da_fachada_do_Obradoiro_vista_dende_a_Praza_de_Praterías._Catedral_de_Santiago_de_Compostela.jpg",
+                                  "author":  "Luis Miguel Bugallo Sánchez",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Obradoiro facade tower of the Catedral de Santiago de Compostela, viewed from Praza de Praterías"
+                              }
+                          ],
+    "santiago_mercado":  [
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Praza_de_abastos_de_Santiago_de_Compostela.jpg/1280px-Praza_de_abastos_de_Santiago_de_Compostela.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Praza_de_abastos_de_Santiago_de_Compostela.jpg",
+                                 "author":  "Luis Miguel Bugallo Sánchez (Lmbuga)",
+                                 "license":  "CC BY-SA 3.0",
+                                 "caption":  "Exterior of the Mercado de Abastos market square in Santiago de Compostela"
+                             },
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Mercado_de_Abastos._Fonte_e_maseira._Santiago_de_Compostela.jpg/1280px-Mercado_de_Abastos._Fonte_e_maseira._Santiago_de_Compostela.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Mercado_de_Abastos._Fonte_e_maseira._Santiago_de_Compostela.jpg",
+                                 "author":  "Luis Miguel Bugallo Sánchez",
+                                 "license":  "CC BY-SA 4.0",
+                                 "caption":  "Fountain and stone trough in the courtyard of the Mercado de Abastos, Santiago de Compostela"
+                             }
+                         ],
+    "viena_stephansdom":  [
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Stephansdom_Wien_Nacht_und_Schnee.JPG/1280px-Stephansdom_Wien_Nacht_und_Schnee.JPG",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Stephansdom_Wien_Nacht_und_Schnee.JPG",
+                                  "author":  "DerHHO",
+                                  "license":  "CC BY-SA 3.0",
+                                  "caption":  "Stephansdom at night, covered in snow"
+                              },
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Wien_beim_stephansdom_01.03.2013_15-45-54.JPG/1280px-Wien_beim_stephansdom_01.03.2013_15-45-54.JPG",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Wien_beim_stephansdom_01.03.2013_15-45-54.JPG",
+                                  "author":  "Dirk Ingo Franke",
+                                  "license":  "CC BY 3.0",
+                                  "caption":  "Stephansplatz near the cathedral, Vienna in late winter"
+                              }
+                          ],
+    "viena_graben":  [
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Graben_Weihnachtsbeleuchtung_3.jpg/1280px-Graben_Weihnachtsbeleuchtung_3.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Graben_Weihnachtsbeleuchtung_3.jpg",
+                             "author":  "Geolina163",
+                             "license":  "CC BY-SA 4.0",
+                             "caption":  "Christmas illumination along the Graben in Vienna, December 2023"
+                         },
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Graben_Weihnachtsbeleuchtung_1.jpg/1280px-Graben_Weihnachtsbeleuchtung_1.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Graben_Weihnachtsbeleuchtung_1.jpg",
+                             "author":  "Geolina163",
+                             "license":  "CC BY-SA 4.0",
+                             "caption":  "The Graben street in Vienna lit up for the Christmas season, December 2023"
+                         }
+                     ],
+    "viena_hofburg":  [
+                          {
+                              "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Hofburg_Palace_at_Night.JPG/1280px-Hofburg_Palace_at_Night.JPG",
+                              "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Hofburg_Palace_at_Night.JPG",
+                              "author":  "Vivisel",
+                              "license":  "Public domain",
+                              "caption":  "The Hofburg Imperial Palace in Vienna at night in winter"
+                          },
+                          {
+                              "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Wien_hofburg_01.03.2013_10-31-44.JPG/1280px-Wien_hofburg_01.03.2013_10-31-44.JPG",
+                              "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Wien_hofburg_01.03.2013_10-31-44.JPG",
+                              "author":  "Dirk Ingo Franke",
+                              "license":  "CC BY 3.0",
+                              "caption":  "The Hofburg Palace grounds in Vienna in late winter"
+                          }
+                      ],
+    "viena_biblioteca":  [
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/State_Hall_of_the_Austrian_National_Library_NightFall404_1.jpg/1280px-State_Hall_of_the_Austrian_National_Library_NightFall404_1.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:State_Hall_of_the_Austrian_National_Library_NightFall404_1.jpg",
+                                 "author":  "Richard Hopkins",
+                                 "license":  "CC BY 2.0",
+                                 "caption":  "Interior view of the Prunksaal State Hall of the Austrian National Library"
+                             },
+                             {
+                                 "imageUrl":  "https://upload.wikimedia.org/wikipedia/commons/0/04/Wien%2C_Treppe_zum_Prunksaal_der_%C3%96sterreichischen_Nationalbibliothek_%2827870050899%29.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Wien,_Treppe_zum_Prunksaal_der_Österreichischen_Nationalbibliothek_(27870050899).jpg",
+                                 "author":  "Herbert Frank",
+                                 "license":  "CC BY 2.0",
+                                 "caption":  "Staircase leading to the Prunksaal of the Austrian National Library in Vienna"
+                             }
+                         ],
+    "viena_rathausplatz":  [
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Wien%2C_Christkindlmarkt_am_Rathausplatz_2018_%283%29.jpg/1280px-Wien%2C_Christkindlmarkt_am_Rathausplatz_2018_%283%29.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Wien,_Christkindlmarkt_am_Rathausplatz_2018_(3).jpg",
+                                   "author":  "Palickap",
+                                   "license":  "CC BY-SA 4.0",
+                                   "caption":  "Active Christmas market stalls at Rathausplatz, Vienna, December 2018"
+                               },
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Rathausplatz_Christkindlmarkt_Baumkugeln.jpg/1280px-Rathausplatz_Christkindlmarkt_Baumkugeln.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Rathausplatz_Christkindlmarkt_Baumkugeln.jpg",
+                                   "author":  "Geolina163",
+                                   "license":  "CC BY-SA 4.0",
+                                   "caption":  "Christmas tree ornaments at the Christkindlmarkt on Rathausplatz, Vienna, December 2023"
+                               }
+                           ],
+    "viena_spittelberg":  [
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Spittelberg_Weihnachtsmarkt_2023_06.jpg/1280px-Spittelberg_Weihnachtsmarkt_2023_06.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Spittelberg_Weihnachtsmarkt_2023_06.jpg",
+                                  "author":  "Geolina163",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Mulled wine (Punsch) stand at the Spittelberg Christmas market in Vienna, December 2023"
+                              },
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Spittelberg_Weihnachtsmarkt_2023_05.jpg/1280px-Spittelberg_Weihnachtsmarkt_2023_05.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Spittelberg_Weihnachtsmarkt_2023_05.jpg",
+                                  "author":  "Geolina163",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Christmas market scene in the historic Spittelberg quarter of Vienna, December 2023"
+                              }
+                          ],
+    "schonbrunn_palacio":  [
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/01_Schloss_Sch%C3%B6nbrunn%2C_Winter_2023.jpg/1280px-01_Schloss_Sch%C3%B6nbrunn%2C_Winter_2023.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:01_Schloss_Schönbrunn,_Winter_2023.jpg",
+                                   "author":  "Michellethewise",
+                                   "license":  "CC0",
+                                   "caption":  "Schönbrunn Palace in winter, December 2023"
+                               },
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/2018-12-02_AT_Wien_13_Hietzing%2C_Schlosspark_Sch%C3%B6nbrunn%2C_Schloss_Sch%C3%B6nbrunn_%2851386701961%29.jpg/1280px-2018-12-02_AT_Wien_13_Hietzing%2C_Schlosspark_Sch%C3%B6nbrunn%2C_Schloss_Sch%C3%B6nbrunn_%2851386701961%29.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:2018-12-02_AT_Wien_13_Hietzing,_Schlosspark_Schönbrunn,_Schloss_Schönbrunn_(51386701961).jpg",
+                                   "author":  "Paul Korecky",
+                                   "license":  "CC BY-SA 2.0",
+                                   "caption":  "Schönbrunn Palace and gardens in Vienna in winter, December 2018"
+                               }
+                           ],
+    "schonbrunn_gloriette":  [
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Sch%C3%B6nbrunn_Gloriette_Neptunbrunnen_Schnee.jpg/1280px-Sch%C3%B6nbrunn_Gloriette_Neptunbrunnen_Schnee.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Schönbrunn_Gloriette_Neptunbrunnen_Schnee.jpg",
+                                     "author":  "Funke",
+                                     "license":  "CC BY-SA 4.0",
+                                     "caption":  "The Gloriette and Neptune Fountain at Schönbrunn covered in snow, December 2023"
+                                 },
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Dusk_at_the_Gloriette_in_the_grounds_of_the_Sch%C3%B6nbrunn_Palace_in_Vienna%2C_Austria._%2816592419442%29.jpg/1280px-Dusk_at_the_Gloriette_in_the_grounds_of_the_Sch%C3%B6nbrunn_Palace_in_Vienna%2C_Austria._%2816592419442%29.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Dusk_at_the_Gloriette_in_the_grounds_of_the_Schönbrunn_Palace_in_Vienna,_Austria._(16592419442).jpg",
+                                     "author":  "traveljunction",
+                                     "license":  "CC BY-SA 2.0",
+                                     "caption":  "Dusk at the Gloriette in the grounds of Schönbrunn Palace, December 2014"
+                                 }
+                             ],
+    "hallstatt":  [
+                      {
+                          "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Blue_Hallstatt_%28204466021%29.jpeg/1280px-Blue_Hallstatt_%28204466021%29.jpeg",
+                          "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Blue_Hallstatt_(204466021).jpeg",
+                          "author":  "Ioan Sendroiu",
+                          "license":  "CC0",
+                          "caption":  "Hallstatt and the Hallstätter See under snow and winter light, Salzkammergut, Austria"
+                      },
+                      {
+                          "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Patience_%28198322827%29.jpeg/1280px-Patience_%28198322827%29.jpeg",
+                          "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Patience_(198322827).jpeg",
+                          "author":  "Simon Matzinger",
+                          "license":  "CC BY 3.0",
+                          "caption":  "A snowy bench overlooking the Hallstätter See in winter, near Hallstatt, Austria"
+                      }
+                  ],
+    "salzburg_catedral":  [
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Salzburg_-_Altstadt_-_Dom_-_2021_12_09-2.jpg/1280px-Salzburg_-_Altstadt_-_Dom_-_2021_12_09-2.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Salzburg_-_Altstadt_-_Dom_-_2021_12_09-2.jpg",
+                                  "author":  "Eweht",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Detail of Salzburg Cathedral during the first snowfall of the season, December 2021"
+                              },
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Salzburg_10_36_37_086000.jpeg/1280px-Salzburg_10_36_37_086000.jpeg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Salzburg_10_36_37_086000.jpeg",
+                                  "author":  "Robot8A",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "View of snow-covered Salzburg\u0027s historic centre including the Cathedral, seen from Hohensalzburg Fortress, December 2022"
+                              }
+                          ],
+    "salzburg_mirabell":  [
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Borghesischer_Fechter.jpg/1280px-Borghesischer_Fechter.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Borghesischer_Fechter.jpg",
+                                  "author":  "Gerhard mauracher",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Snow-covered Borghese Fencer statue in Mirabell Gardens, Salzburg, in winter"
+                              },
+                              {
+                                  "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/L%C3%B6we_Mirabellgarten.jpg/1280px-L%C3%B6we_Mirabellgarten.jpg",
+                                  "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Löwe_Mirabellgarten.jpg",
+                                  "author":  "Gerhard mauracher",
+                                  "license":  "CC BY-SA 4.0",
+                                  "caption":  "Snow-covered stone lion statue in Mirabell Gardens, Salzburg, in winter"
+                              }
+                          ],
+    "salzburg_getreidegasse":  [
+                                   {
+                                       "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Austria_%288344887111%29.jpg/1280px-Austria_%288344887111%29.jpg",
+                                       "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Austria_(8344887111).jpg",
+                                       "author":  "Luca Nebuloni",
+                                       "license":  "CC BY 2.0",
+                                       "caption":  "Getreidegasse shop signs decorated for Christmas, Salzburg, December 2012"
+                                   },
+                                   {
+                                       "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Salzburg_-_panoramio_-_Michael_Paraskevas_%281%29.jpg/1280px-Salzburg_-_panoramio_-_Michael_Paraskevas_%281%29.jpg",
+                                       "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Salzburg_-_panoramio_-_Michael_Paraskevas_(1).jpg",
+                                       "author":  "Michael Paraskevas",
+                                       "license":  "CC BY-SA 3.0",
+                                       "caption":  "Getreidegasse guild sign with Christmas lights and snowflake ornaments, Salzburg, January 2007"
+                                   }
+                               ],
+    "estrasburgo_petite_france":  [
+                                      {
+                                          "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/D%C3%A9corations_de_No%C3%ABl.jpg/1280px-D%C3%A9corations_de_No%C3%ABl.jpg",
+                                          "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Décorations_de_Noël.jpg",
+                                          "author":  "Pierre_Bn",
+                                          "license":  "CC BY 2.0",
+                                          "caption":  "Christmas decorations in the Petite France quarter of Strasbourg, November 2018"
+                                      },
+                                      {
+                                          "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Saint-Thomas%2C_%C3%A9glise_protestante_et_sa_Petite_France.jpg/1280px-Saint-Thomas%2C_%C3%A9glise_protestante_et_sa_Petite_France.jpg",
+                                          "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Saint-Thomas,_église_protestante_et_sa_Petite_France.jpg",
+                                          "author":  "Zéphyrios",
+                                          "license":  "CC0",
+                                          "caption":  "The Saint-Thomas church and its Petite France quarter, Strasbourg, with a Christmas market nearby, December 2017"
+                                      }
+                                  ],
+    "estrasburgo_catedral":  [
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/March%C3%A9_de_No%C3%ABl%2C_Place_de_la_Cath%C3%A9drale%2C_67000_Strasbourg%2C_France_-_panoramio_-_georama.jpg/1280px-March%C3%A9_de_No%C3%ABl%2C_Place_de_la_Cath%C3%A9drale%2C_67000_Strasbourg%2C_France_-_panoramio_-_georama.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Marché_de_Noël,_Place_de_la_Cathédrale,_67000_Strasbourg,_France_-_panoramio_-_georama.jpg",
+                                     "author":  "georama",
+                                     "license":  "CC BY 3.0",
+                                     "caption":  "Strasbourg\u0027s Christmas market on Place de la Cathédrale, with the Cathedral in the background, December 2006"
+                                 },
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Strasbourg_march%C3%A9_de_No%C3%ABl_place_de_la_cath%C3%A9drale_jour_d%C3%A9cembre_2014.jpg/1280px-Strasbourg_march%C3%A9_de_No%C3%ABl_place_de_la_cath%C3%A9drale_jour_d%C3%A9cembre_2014.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Strasbourg_marché_de_Noël_place_de_la_cathédrale_jour_décembre_2014.jpg",
+                                     "author":  "Claude Truong-Ngoc",
+                                     "license":  "CC BY-SA 3.0",
+                                     "caption":  "Daytime view of Strasbourg\u0027s Christmas market on the cathedral square, December 2014"
+                                 }
+                             ],
+    "paris_louvre":  [
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Le_Louvre_sous_la_neige_D260105_3.jpg/1280px-Le_Louvre_sous_la_neige_D260105_3.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Le_Louvre_sous_la_neige_D260105_3.jpg",
+                             "author":  "Tangopaso",
+                             "license":  "Public domain",
+                             "caption":  "Another view of the Louvre\u0027s Cour Napoléon under snow, Paris"
+                         },
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Paris_Louvres01.jpg/1280px-Paris_Louvres01.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Paris_Louvres01.jpg",
+                             "author":  "Lepeltier.ludovic",
+                             "license":  "CC BY-SA 3.0",
+                             "caption":  "The Louvre Pyramid at night in winter, Place du Carrousel, Paris, February 2008"
+                         }
+                     ],
+    "paris_tuileries":  [
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Paris_-_Grande_all%C3%A9e_du_jardin_des_Tuileries_sous_la_neige.jpg/1280px-Paris_-_Grande_all%C3%A9e_du_jardin_des_Tuileries_sous_la_neige.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Paris_-_Grande_allée_du_jardin_des_Tuileries_sous_la_neige.jpg",
+                                "author":  "Jean-Pierre Dalbéra",
+                                "license":  "CC BY 2.0",
+                                "caption":  "The main allée of the Tuileries Garden under snow at early morning, Paris"
+                            },
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Jardin-des-Tuileries-hiver-2013-DSC_0162.jpg/1280px-Jardin-des-Tuileries-hiver-2013-DSC_0162.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Jardin-des-Tuileries-hiver-2013-DSC_0162.jpg",
+                                "author":  "Pline",
+                                "license":  "CC BY-SA 3.0",
+                                "caption":  "The Tuileries Garden during the snow episode of January 2013, Paris"
+                            }
+                        ],
+    "paris_opera":  [
+                        {
+                            "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Le_boulevard_des_Capucines_sous_la_neige%2C_2%C3%A8me_arrondissement%2C_Paris._PH64.jpg/1280px-Le_boulevard_des_Capucines_sous_la_neige%2C_2%C3%A8me_arrondissement%2C_Paris._PH64.jpg",
+                            "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Le_boulevard_des_Capucines_sous_la_neige,_2ème_arrondissement,_Paris._PH64.jpg",
+                            "author":  "Paul Géniaux",
+                            "license":  "CC0",
+                            "caption":  "Historic photograph of the snow-covered Boulevard des Capucines near the Palais Garnier, Paris, circa 1895-1905"
+                        },
+                        {
+                            "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Paris_Opera_House%2C_Palais_Garnier_5-2013.jpeg/1280px-Paris_Opera_House%2C_Palais_Garnier_5-2013.jpeg",
+                            "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Paris_Opera_House,_Palais_Garnier_5-2013.jpeg",
+                            "author":  "Wikimedia Commons",
+                            "license":  "Public domain",
+                            "caption":  "The principal facade of the Palais Garnier, Paris Opera House"
+                        }
+                    ],
+    "paris_montmartre":  [
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Montmartre_sous_la_neige_en_janvier_2026_-_Paysage.jpg/1280px-Montmartre_sous_la_neige_en_janvier_2026_-_Paysage.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Montmartre_sous_la_neige_en_janvier_2026_-_Paysage.jpg",
+                                 "author":  "Louis Barret",
+                                 "license":  "CC BY-SA 4.0",
+                                 "caption":  "Panoramic view from the Sacré-Cœur Basilica over snow-covered Montmartre, Paris, January 2026"
+                             },
+                             {
+                                 "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/23-2-33%2C_neige_%C3%A0_Paris_%28enfants_jouant_dans_la_neige_pr%C3%A8s_du_Sacr%C3%A9-Coeur%29_-_btv1b532663609.jpg/1280px-23-2-33%2C_neige_%C3%A0_Paris_%28enfants_jouant_dans_la_neige_pr%C3%A8s_du_Sacr%C3%A9-Coeur%29_-_btv1b532663609.jpg",
+                                 "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:23-2-33,_neige_à_Paris_(enfants_jouant_dans_la_neige_près_du_Sacré-Coeur)_-_btv1b532663609.jpg",
+                                 "author":  "Agence Rol",
+                                 "license":  "Public domain",
+                                 "caption":  "Historic press photograph of children playing in the snow near the Sacré-Cœur Basilica, Montmartre, Paris, February 1933"
+                             }
+                         ],
+    "paris_tertre":  [
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Butte_Montmartre%2C_Place_du_Tertre%2C_Paris.jpg/1280px-Butte_Montmartre%2C_Place_du_Tertre%2C_Paris.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Butte_Montmartre,_Place_du_Tertre,_Paris.jpg",
+                             "author":  "Britchi Mirela",
+                             "license":  "CC BY-SA 3.0",
+                             "caption":  "Place du Tertre, the artists\u0027 square atop Montmartre, with easels and cafe terraces"
+                         },
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Montmartre%2C_Place_du_Tertre._Fortepan_69842.jpg/1280px-Montmartre%2C_Place_du_Tertre._Fortepan_69842.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Montmartre,_Place_du_Tertre._Fortepan_69842.jpg",
+                             "author":  "FOTO:FORTEPAN / A R",
+                             "license":  "CC BY-SA 3.0",
+                             "caption":  "Historic view of Place du Tertre, Montmartre\u0027s artists\u0027 square, in 1968"
+                         }
+                     ],
+    "paris_moulin_rouge":  [
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Moulin_Rouge%2C_17_April_2011.jpg/1280px-Moulin_Rouge%2C_17_April_2011.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Moulin_Rouge,_17_April_2011.jpg",
+                                   "author":  "Juanedc from Zaragoza, España",
+                                   "license":  "CC BY 2.0",
+                                   "caption":  "Street view of the Moulin Rouge facade on Boulevard de Clichy, Paris"
+                               },
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/De_Moulin_Rouge_in_Parijs_bij_avond%2C_Bestanddeelnr_254-5695.jpg/1280px-De_Moulin_Rouge_in_Parijs_bij_avond%2C_Bestanddeelnr_254-5695.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:De_Moulin_Rouge_in_Parijs_bij_avond,_Bestanddeelnr_254-5695.jpg",
+                                   "author":  "Willem van de Poll",
+                                   "license":  "CC0",
+                                   "caption":  "The Moulin Rouge cabaret lit up in the evening, historic photograph"
+                               }
+                           ],
+    "paris_notredame":  [
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/NotreDameParisFacadeDec2018.jpg/1280px-NotreDameParisFacadeDec2018.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:NotreDameParisFacadeDec2018.jpg",
+                                "author":  "HourlierAdrien",
+                                "license":  "CC BY-SA 4.0",
+                                "caption":  "Notre-Dame de Paris cathedral facade in December, during the winter season"
+                            },
+                            {
+                                "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Front_of_Notre-Dame_-_panoramio.jpg/1280px-Front_of_Notre-Dame_-_panoramio.jpg",
+                                "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Front_of_Notre-Dame_-_panoramio.jpg",
+                                "author":  "Romain.D.C",
+                                "license":  "CC BY 3.0",
+                                "caption":  "The front facade of Notre-Dame de Paris cathedral, photographed in January"
+                            }
+                        ],
+    "paris_saintechapelle":  [
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Sainte_Chapelle%2C_vitraux_et_vo%C3%BBte.jpg/1280px-Sainte_Chapelle%2C_vitraux_et_vo%C3%BBte.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Sainte_Chapelle,_vitraux_et_voûte.jpg",
+                                     "author":  "Stockholm",
+                                     "license":  "CC BY-SA 4.0",
+                                     "caption":  "Sainte-Chapelle\u0027s stained-glass windows and vaulted ceiling, Paris"
+                                 },
+                                 {
+                                     "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/The_stained_glass_windows_at_Sainte-Chapelle_1.jpg/1280px-The_stained_glass_windows_at_Sainte-Chapelle_1.jpg",
+                                     "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:The_stained_glass_windows_at_Sainte-Chapelle_1.jpg",
+                                     "author":  "Bill Peloquin",
+                                     "license":  "CC BY-SA 4.0",
+                                     "caption":  "Close view of the towering stained-glass windows inside Sainte-Chapelle, Paris"
+                                 }
+                             ],
+    "paris_marais":  [
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Place_des_Vosges_vue_a%C3%A9rienne.png/1280px-Place_des_Vosges_vue_a%C3%A9rienne.png",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Place_des_Vosges_vue_aérienne.png",
+                             "author":  "Des Racines et des Ailes",
+                             "license":  "CC BY 3.0",
+                             "caption":  "Aerial view of Place des Vosges and its central garden in the Marais, Paris"
+                         },
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/126_Place_des_Vosges_%2830809693665%29.jpg/1280px-126_Place_des_Vosges_%2830809693665%29.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:126_Place_des_Vosges_(30809693665).jpg",
+                             "author":  "Carl Campbell",
+                             "license":  "CC BY 2.0",
+                             "caption":  "The arcades and facades of Place des Vosges in the Marais district of Paris"
+                         }
+                     ],
+    "paris_eiffel":  [
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Paris_Parvis_des_Droits_de_l%27homme_20100228_Eiffel_Tower_in_winter.jpg/1280px-Paris_Parvis_des_Droits_de_l%27homme_20100228_Eiffel_Tower_in_winter.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Paris_Parvis_des_Droits_de_l%27homme_20100228_Eiffel_Tower_in_winter.jpg",
+                             "author":  "Alejandro Mantecón-Guillén",
+                             "license":  "CC BY-SA 3.0",
+                             "caption":  "The Eiffel Tower seen from the Parvis des Droits de l\u0027Homme at Trocadéro in winter"
+                         },
+                         {
+                             "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Tour_eiffel_at_sunrise_from_the_trocadero.jpg/1280px-Tour_eiffel_at_sunrise_from_the_trocadero.jpg",
+                             "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Tour_eiffel_at_sunrise_from_the_trocadero.jpg",
+                             "author":  "Tristan Nitot",
+                             "license":  "CC BY-SA 3.0",
+                             "caption":  "The Eiffel Tower at sunrise seen from the Trocadéro, photographed in January"
+                         }
+                     ],
+    "paris_sena":  [
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/La_Seine_gel%C3%A9e%2C_vue_prise_du_pont_de_Sully%2C_4%C3%A8me_arrondissement%2C_Paris._PH20567.jpg/1280px-La_Seine_gel%C3%A9e%2C_vue_prise_du_pont_de_Sully%2C_4%C3%A8me_arrondissement%2C_Paris._PH20567.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:La_Seine_gelée,_vue_prise_du_pont_de_Sully,_4ème_arrondissement,_Paris._PH20567.jpg",
+                           "author":  "Wikimedia Commons",
+                           "license":  "CC0",
+                           "caption":  "The frozen Seine River seen from the Pont de Sully, Paris, historic winter photograph"
+                       },
+                       {
+                           "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Les_quais_-_%28Hiver%29_Brouillard%2C_PH3807.jpg/1280px-Les_quais_-_%28Hiver%29_Brouillard%2C_PH3807.jpg",
+                           "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Les_quais_-_(Hiver)_Brouillard,_PH3807.jpg",
+                           "author":  "Eugène Atget",
+                           "license":  "CC0",
+                           "caption":  "The quays of the Seine in Paris shrouded in winter fog, historic photograph by Eugène Atget, 1923"
+                       }
+                   ],
+    "versailles_palacio":  [
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Facade_principale_du_ch%C3%A2teau_de_Versailles%2C_c%C3%B4t%C3%A9_jardins_-_DSC_0600.jpg/1280px-Facade_principale_du_ch%C3%A2teau_de_Versailles%2C_c%C3%B4t%C3%A9_jardins_-_DSC_0600.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Facade_principale_du_château_de_Versailles,_côté_jardins_-_DSC_0600.jpg",
+                                   "author":  "Trizek",
+                                   "license":  "CC BY-SA 3.0",
+                                   "caption":  "The garden facade of the Palace of Versailles"
+                               },
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg/1280px-Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Water_reflection_of_the_Orangerie_garden_and_Palace_of_Versailles_with_blue_sky_in_France.jpg",
+                                   "author":  "Basile Morin",
+                                   "license":  "CC BY-SA 4.0",
+                                   "caption":  "The Palace of Versailles reflected in the water of the Orangerie garden under a blue sky"
+                               }
+                           ],
+    "versailles_jardins":  [
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Jardins_du_Grand_Trianon_Versailles_Aug_2026_03.jpg/1280px-Jardins_du_Grand_Trianon_Versailles_Aug_2026_03.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Jardins_du_Grand_Trianon_Versailles_Aug_2026_03.jpg",
+                                   "author":  "Heidi Meudt",
+                                   "license":  "CC BY 4.0",
+                                   "caption":  "The gardens of the Grand Trianon at the Château de Versailles"
+                               },
+                               {
+                                   "imageUrl":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Panorama_at_the_Ch%C3%A2teau_de_Versailles_-_The_Grand_Trianon_Gardens.jpg/1280px-Panorama_at_the_Château_de_Versailles_-_The_Grand_Trianon_Gardens.jpg",
+                                   "commonsPageUrl":  "https://commons.wikimedia.org/wiki/File:Panorama_at_the_Château_de_Versailles_-_The_Grand_Trianon_Gardens.jpg",
+                                   "author":  "DiscoA340",
+                                   "license":  "CC BY-SA 4.0",
+                                   "caption":  "Panoramic view of the Grand Trianon gardens at the Château de Versailles"
+                               }
+                           ]
+};

@@ -84,9 +84,15 @@
           <b id="statCities">0</b><span>Cidades</span>
         </div>
       </div>
+      <a href="#roteiro" class="trip-status" id="tripStatus" hidden>
+        <span class="trip-status-dot"></span>
+        <span class="trip-status-text"></span>
+        <span class="trip-status-cta">Ver roteiro de hoje →</span>
+      </a>
     </div>
     <div class="hero-map-wrap">
       <span class="map-badge">Rota da expedição</span>
+      <span class="map-badge map-badge-day" id="mapDayLabel"><span class="map-day-n">DIA 01</span><span>Lisboa</span></span>
       <div id="route-map"></div>
     </div>
   </div>
@@ -170,7 +176,23 @@
       </table>
     </div>
 
-    <div class="totals-row" id="budgetTotals"></div>
+    <div class="totals-row" id="budgetTotals">
+      <div class="total-card">
+        <span>Total da viagem</span>
+        <b id="totalEUR" data-raw-value="0">€ 0,00</b>
+        <small><span id="totalBRL" data-raw-value="0">R$ 0,00</span><span id="totalEstNote"></span></small>
+      </div>
+      <div class="total-card">
+        <span>Por pessoa (4 adultos)</span>
+        <b id="perPersonEUR" data-raw-value="0">€ 0,00</b>
+        <small><span id="perPersonBRL" data-raw-value="0">R$ 0,00</span></small>
+      </div>
+      <div class="total-card">
+        <span>Cotação usada</span>
+        <b id="rateDisplay" data-raw-value="0">0.00</b>
+        <small id="rateNote">1 € = R$ 0,00 (editável acima)</small>
+      </div>
+    </div>
 
     <h3 style="margin-bottom:16px; font-size:1.2rem;">Gastos por categoria (€)</h3>
     <div class="bars" id="budgetBars"></div>
